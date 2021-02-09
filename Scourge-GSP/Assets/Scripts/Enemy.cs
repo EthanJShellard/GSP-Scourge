@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public abstract class Enemy : MonoBehaviour
 {
-    [SerializeField] protected int HP; //Hit Points, Health Points
+    [SerializeField] protected int hitPoints; //Hit Points, Health Points
 
     /// <summary>
     /// Deal n damage to this enemy.

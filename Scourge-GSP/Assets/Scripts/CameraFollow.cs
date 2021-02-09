@@ -7,13 +7,14 @@ using UnityEngine;
 /// </summary>
 public class CameraFollow : MonoBehaviour
 {
-    public Transform playerTransform;
-    public float size;
+    [SerializeField] Transform playerTransform;
+    [SerializeField] float size;
     [SerializeField] Vector3 offset;
 
     // Start is called before the first frame update
     void Start()
     {
+        GetComponentInParent<Camera>().orthographicSize = size;
         transform.position = playerTransform.position;
         transform.Translate(offset);
     }
@@ -25,6 +26,7 @@ public class CameraFollow : MonoBehaviour
         transform.Translate(offset);
     }
 
+    //Assigns values when the component is first added or when reset selected in the editor
     private void Reset()
     {
         size = 5;
