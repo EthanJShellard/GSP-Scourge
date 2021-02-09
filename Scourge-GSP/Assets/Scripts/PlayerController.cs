@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
     [Range(0, .3f)] [SerializeField] private float moveSmoothing = .05f;
-    [SerializeField] private float JumpForce;
+    [SerializeField] private float jumpForce;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask whatIsGround;
 
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private bool grounded = false;
 
     const float groundedRadius = .2f;
+    const float velocityMultiplier = 10f;
     private Vector3 baseVelocity = Vector3.zero;
     private bool facingRight = true;
 
@@ -45,13 +46,10 @@ public class PlayerController : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundedRadius, whatIsGround);
         for (int i = 0; i < colliders.Length; i++)
         {
-            if (colliders[i].gameObject != gameObject)
-            {
-                grounded = true;
-            }
+            grounded = true;
         }
 
-        Vector3 targetVelocity = new Vector2(horizontalInput * speed * Time.fixedDeltaTime * 10, rb.velocity.y);
+        Vector3 targetVelocity = new Vector2(horizontalInput * speed * Time.fixedDeltaTime * velocityMultiplier, rb.velocity.y);
 
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref baseVelocity, moveSmoothing);
 
@@ -67,7 +65,7 @@ public class PlayerController : MonoBehaviour
         if (grounded && jump)
         {
             grounded = false;
-            rb.AddForce(new Vector2(.0f, JumpForce));
+            rb.AddForce(new Vector2(.0f, jumpForce));
         }
 
     }
