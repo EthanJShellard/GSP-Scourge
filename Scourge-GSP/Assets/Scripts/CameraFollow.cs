@@ -9,19 +9,25 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform playerTransform;
     public float size;
-    public float zPos;
+    [SerializeField] Vector3 offset;
 
     // Start is called before the first frame update
     void Start()
     {
         transform.position = playerTransform.position;
-        transform.Translate(0, 0, zPos);
+        transform.Translate(offset);
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position = playerTransform.position;
-        transform.Translate(0, 0, zPos);
+        transform.Translate(offset);
+    }
+
+    private void Reset()
+    {
+        size = 5;
+        offset.Set(0,2,-10);
     }
 }

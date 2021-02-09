@@ -496,7 +496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1721094690}
   size: 5
-  zPos: -10
+  offset: {x: 0, y: 2, z: -10}
 --- !u!1 &1721094688
 GameObject:
   m_ObjectHideFlags: 0
