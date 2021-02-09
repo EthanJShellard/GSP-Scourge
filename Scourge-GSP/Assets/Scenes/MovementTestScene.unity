@@ -712,7 +712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 25
   moveSmoothing: 0.188
-  JumpForce: 300
+  jumpForce: 200
   groundCheck: {fileID: 1947017526}
   whatIsGround:
     serializedVersion: 2
