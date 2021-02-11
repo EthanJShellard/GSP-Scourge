@@ -63,10 +63,23 @@ public class PlaguedPersonMelee : Enemy
         if (player.position.x - transform.position.x > desiredRange)
         {
             moveDir = MoveDirection.RIGHT;
+            if (transform.localScale.x < 0) 
+            {
+                Vector2 scale = transform.localScale;
+                scale.x *= -1;
+                transform.localScale = scale;
+            }
+            
         }
         else if (player.position.x - transform.position.x < -desiredRange)
         {
             moveDir = MoveDirection.LEFT;
+            if (transform.localScale.x > 0)
+            {
+                Vector2 scale = transform.localScale;
+                scale.x *= -1;
+                transform.localScale = scale;
+            }
         }
         else 
         {

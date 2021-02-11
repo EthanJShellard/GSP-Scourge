@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 896661534554833129}
   - component: {fileID: 3224877688009499862}
   - component: {fileID: 5291753479439261962}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlaguedPersonMelee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
