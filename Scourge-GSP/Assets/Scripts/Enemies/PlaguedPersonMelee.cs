@@ -5,22 +5,73 @@ using UnityEngine;
 public class PlaguedPersonMelee : Enemy
 {
     [SerializeField] private int attackDamage;
-    [SerializeField] private int walkSpeed;
-    [SerializeField] private int aggroRange;
+    [SerializeField] private float walkSpeed;
+    [SerializeField] private float aggroRange;
     [SerializeField] private LayerMask playerLayer;
+    /// <summary>
+    /// Horizontal distance from the player that this enemy will aim for before stopping to attack
+    /// </summary>
+    [SerializeField] private float desiredRange;
+
+    private Rigidbody2D rb;
+
+    private enum MoveDirection { NONE, LEFT, RIGHT }
+    MoveDirection moveDir = MoveDirection.NONE;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     private void FixedUpdate()
     {
         Collider2D[] player = Physics2D.OverlapCircleAll(transform.position, aggroRange, playerLayer);
-        if (player.Length > 0) 
+        if (player.Length > 0)
         {
-            FindPathToPlayer(player[0].transform);
+            
+            PathToPlayer(player[0].transform);
+        }
+        else 
+        {
+            moveDir = MoveDirection.NONE;
+        }
+
+
+        Vector2 vel = rb.velocity;
+        switch (moveDir) 
+        {
+            case MoveDirection.NONE:
+                rb.velocity.Set(0,0);
+                break;
+            case MoveDirection.LEFT:
+                vel.x = -walkSpeed;
+                rb.velocity = vel;
+                break;
+            case MoveDirection.RIGHT:
+                vel.x = walkSpeed;
+                rb.velocity = vel;
+                break;
         }
     }
 
-    private void FindPathToPlayer(Transform player) 
+    /// <summary>
+    /// Determine how to move towards the player. Currently just moves in their direction regardless of obstacles. This enemy cannot jump.
+    /// </summary>
+    /// <param name="player">The transform from the target player GameObject</param>
+    private void PathToPlayer(Transform player) 
     {
-        
+        if (player.position.x - transform.position.x > desiredRange)
+        {
+            moveDir = MoveDirection.RIGHT;
+        }
+        else if (player.position.x - transform.position.x < -desiredRange)
+        {
+            moveDir = MoveDirection.LEFT;
+        }
+        else 
+        {
+            moveDir = MoveDirection.NONE;
+        }
     }
 
     override public void Kill() 

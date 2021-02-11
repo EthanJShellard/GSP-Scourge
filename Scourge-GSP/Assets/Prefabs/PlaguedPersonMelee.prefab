@@ -48,11 +48,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoints: 2
   attackDamage: 1
-  walkSpeed: 1
+  walkSpeed: 2
   aggroRange: 10
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+  desiredRange: 2
 --- !u!61 &896661534554833129
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -145,7 +146,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bad51091d5689754e937eeed50ee2774, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
