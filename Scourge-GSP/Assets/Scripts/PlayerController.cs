@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref baseVelocity, moveSmoothing);
 
+        
         if (horizontalInput > 0 && !facingRight)
         {
             FlipPlayer();
@@ -61,7 +62,7 @@ public class PlayerController : MonoBehaviour
         {
             FlipPlayer();
         }
-
+        
         if (grounded && jump)
         {
             grounded = false;

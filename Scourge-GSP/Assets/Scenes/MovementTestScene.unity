@@ -566,6 +566,36 @@ MonoBehaviour:
   playerTransform: {fileID: 1721094690}
   size: 5
   offset: {x: 0, y: 2, z: -10}
+--- !u!1 &1336069379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1336069380}
+  m_Layer: 8
+  m_Name: WandTip
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1336069380
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336069379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.26, y: 0.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1721094690}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1721094688
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,9 +609,10 @@ GameObject:
   - component: {fileID: 1721094691}
   - component: {fileID: 1721094692}
   - component: {fileID: 1721094693}
+  - component: {fileID: 1721094694}
   m_Layer: 8
   m_Name: TestPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -648,6 +679,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1947017526}
+  - {fileID: 1336069380}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -717,6 +749,22 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 55
+--- !u!114 &1721094694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721094688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a50e8141ac308468d364e59f7f0979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootPoint: {fileID: 1336069380}
+  projectile: {fileID: 2333129141110753372, guid: a5828c7808444a54db383669c099d5da,
+    type: 3}
+  bulletSpeed: 10
 --- !u!1 &1947017525
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,8 +775,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1947017526}
   m_Layer: 8
-  m_Name: GameObject
-  m_TagString: Untagged
+  m_Name: Base
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
