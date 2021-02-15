@@ -18,6 +18,7 @@ public class PlayerShoot : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            if (lookDirection.x >= 0 != transform.localScale.x >= 0) Flip();
             FireProjectile();
         }
 
