@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Main script of melee plagued person.
+/// </summary>
 public class PlaguedPersonMelee : Enemy
 {
     [SerializeField] private int attackDamage;
@@ -60,7 +63,7 @@ public class PlaguedPersonMelee : Enemy
     /// <param name="player">The transform from the target player GameObject</param>
     private void PathToPlayer(Transform player) 
     {
-        if (player.position.x - transform.position.x > desiredRange)
+        if (player.position.x - transform.position.x > desiredRange) //If outside of melee range
         {
             moveDir = MoveDirection.RIGHT;
             if (transform.localScale.x < 0) 
