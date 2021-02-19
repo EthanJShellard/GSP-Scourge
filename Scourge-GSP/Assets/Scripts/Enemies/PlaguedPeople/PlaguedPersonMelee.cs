@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 /// <summary>
 /// Main script of melee plagued person.
 /// </summary>
@@ -18,6 +19,8 @@ public class PlaguedPersonMelee : Enemy
 
     private Rigidbody2D rb;
     bool attack = false;
+    Animator animator;
+
 
     private enum MoveDirection { NONE, LEFT, RIGHT }
     MoveDirection moveDir = MoveDirection.NONE;
@@ -25,6 +28,7 @@ public class PlaguedPersonMelee : Enemy
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -44,13 +48,16 @@ public class PlaguedPersonMelee : Enemy
         switch (moveDir) 
         {
             case MoveDirection.NONE:
+                animator.SetBool("Walking", false);
                 rb.velocity.Set(0,0);
                 break;
             case MoveDirection.LEFT:
+                animator.SetBool("Walking", true);
                 vel.x = -walkSpeed;
                 rb.velocity = vel;
                 break;
             case MoveDirection.RIGHT:
+                animator.SetBool("Walking", true);
                 vel.x = walkSpeed;
                 rb.velocity = vel;
                 break;
