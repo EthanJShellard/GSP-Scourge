@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float speed;
+    [SerializeField] private float speed;
     [Range(0, .3f)] [SerializeField] private float moveSmoothing = .05f;
     [SerializeField] private float jumpForce;
     [SerializeField] private Transform groundCheck;

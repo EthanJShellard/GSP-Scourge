@@ -6,6 +6,27 @@ public class ProjectileController : MonoBehaviour
 {
 
     [SerializeField] private float damage = 2;
+    [SerializeField] private float bulletLifetime = 1;
+
+    private float lifeTimeLeft;
+
+    private void Start()
+    {
+        lifeTimeLeft = bulletLifetime;
+    }
+
+    private void Update()
+    {
+        if (lifeTimeLeft <= .0f)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            lifeTimeLeft -= Time.deltaTime;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag != "Player")

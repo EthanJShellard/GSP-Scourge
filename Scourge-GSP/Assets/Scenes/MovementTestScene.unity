@@ -859,7 +859,7 @@ MonoBehaviour:
   enemies:
     serializedVersion: 2
     m_Bits: 512
-  attackRange: 5
+  attackRange: 1
   damage: 1
 --- !u!1 &1947017525
 GameObject:

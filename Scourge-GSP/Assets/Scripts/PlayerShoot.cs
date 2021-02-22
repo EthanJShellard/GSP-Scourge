@@ -7,11 +7,11 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private Transform shootPoint;
     [SerializeField] private GameObject projectile;
     [SerializeField] private float bulletSpeed;
+    [Header("Time between attacks")]
     [SerializeField] private float AttackTimer;
 
     private float currentTime = 0.0f;
     private Vector2 lookDirection;
-    private bool facingRight = false;
 
     private void Update()
     {
