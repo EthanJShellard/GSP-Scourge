@@ -109,9 +109,10 @@ public class PlaguedPersonMelee : Enemy
     public override void Damage(int n)
     {
         hitPoints -= n;
-
+        Debug.Log(hitPoints);
         if (hitPoints <= 0) 
         {
+
             Kill();
         }
     }

@@ -7,7 +7,9 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private Transform shootPoint;
     [SerializeField] private GameObject projectile;
     [SerializeField] private float bulletSpeed;
+    [SerializeField] private float AttackTimer;
 
+    private float currentTime = 0.0f;
     private Vector2 lookDirection;
     private bool facingRight = false;
 
@@ -16,12 +18,20 @@ public class PlayerShoot : MonoBehaviour
         lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         lookDirection.Normalize();
 
-        if (Input.GetMouseButtonDown(0))
+        if (currentTime <= 0.0f)
         {
-            if (lookDirection.x >= 0 != transform.localScale.x >= 0) Flip();
-            FireProjectile();
+            Debug.Log("can attack");
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (lookDirection.x >= 0 != transform.localScale.x >= 0) Flip();
+                FireProjectile();
+                currentTime = AttackTimer;
+            }
         }
-
+        else
+        {
+            currentTime -= Time.deltaTime;
+        }
     }
 
     private void Flip()

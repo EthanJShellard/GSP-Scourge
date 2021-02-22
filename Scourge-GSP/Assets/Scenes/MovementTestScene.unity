@@ -480,6 +480,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaguedPersonMelee
       objectReference: {fileID: 0}
+    - target: {fileID: 5823524506844299528, guid: 524fba234127e26499c5fa02907ec225,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6422330955899615429, guid: 524fba234127e26499c5fa02907ec225,
         type: 3}
       propertyPath: m_RootOrder
@@ -680,6 +685,7 @@ GameObject:
   - component: {fileID: 1721094692}
   - component: {fileID: 1721094693}
   - component: {fileID: 1721094694}
+  - component: {fileID: 1721094695}
   m_Layer: 8
   m_Name: TestPlayer
   m_TagString: Player
@@ -835,6 +841,26 @@ MonoBehaviour:
   projectile: {fileID: 2333129141110753372, guid: a5828c7808444a54db383669c099d5da,
     type: 3}
   bulletSpeed: 10
+  AttackTimer: 1.5
+--- !u!114 &1721094695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721094688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57615a718d9177e4090b4992d3811554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTimeAttack: 0.5
+  attackPos: {fileID: 1336069380}
+  enemies:
+    serializedVersion: 2
+    m_Bits: 512
+  attackRange: 5
+  damage: 1
 --- !u!1 &1947017525
 GameObject:
   m_ObjectHideFlags: 0
