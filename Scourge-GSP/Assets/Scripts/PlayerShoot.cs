@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShoot : MonoBehaviour
 {
@@ -10,12 +11,16 @@ public class PlayerShoot : MonoBehaviour
     [Header("Time between attacks")]
     [SerializeField] private float AttackTimer;
 
+    [Header("Ability Visuals")]
+    [SerializeField] private Image shootImage1;
+
     private float currentTime = 0.0f;
     private Vector2 lookDirection;
     private Player player;
 
     private void Start()
     {
+        shootImage1.fillAmount = 0;
         player = GetComponent<Player>();
     }
 
@@ -30,12 +35,20 @@ public class PlayerShoot : MonoBehaviour
             {
                 if (lookDirection.x >= 0 != transform.localScale.x >= 0) player.Flip();
                 FireProjectile();
+                shootImage1.fillAmount = 1;
                 currentTime = AttackTimer;
             }
         }
         else
         {
+            shootImage1.fillAmount -= 1 / AttackTimer * Time.deltaTime;
             currentTime -= Time.deltaTime;
+
+            if (shootImage1.fillAmount <= 0)
+            {
+                shootImage1.fillAmount = 0;
+            }
+
         }
     }
 
