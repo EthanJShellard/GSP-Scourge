@@ -20,7 +20,6 @@ public class PlayerShoot : MonoBehaviour
 
         if (currentTime <= 0.0f)
         {
-            Debug.Log("can attack");
             if (Input.GetMouseButtonDown(1))
             {
                 if (lookDirection.x >= 0 != transform.localScale.x >= 0) Flip();

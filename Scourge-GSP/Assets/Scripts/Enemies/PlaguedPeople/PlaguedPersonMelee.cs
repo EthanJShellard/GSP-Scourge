@@ -104,12 +104,12 @@ public class PlaguedPersonMelee : Enemy
             Blood Effect
             Corpse?? Delete Enemy?
          */
+        Destroy(this.gameObject);
     }
 
     public override void Damage(int n)
     {
         hitPoints -= n;
-        Debug.Log(hitPoints);
         if (hitPoints <= 0) 
         {
 
