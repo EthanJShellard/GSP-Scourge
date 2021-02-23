@@ -20,10 +20,11 @@ public class PlayerController : MonoBehaviour
     const float groundedRadius = .2f;
     const float velocityMultiplier = 10f;
     private Vector3 baseVelocity = Vector3.zero;
-    private bool facingRight = true;
+    private Player player;
 
     void Start()
     {
+        player = GetComponent<Player>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -53,14 +54,14 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref baseVelocity, moveSmoothing);
 
-        
-        if (horizontalInput > 0 && !facingRight)
+
+        if (horizontalInput > 0 && !player.IsFacingRight())
         {
-            FlipPlayer();
+            player.Flip();
         }
-        else if (horizontalInput < 0 && facingRight)
+        else if (horizontalInput < 0 && player.IsFacingRight())
         {
-            FlipPlayer();
+            player.Flip();
         }
         
         if (grounded && jump)
@@ -69,15 +70,6 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(.0f, jumpForce));
         }
 
-    }
-
-    private void FlipPlayer()
-    {
-        facingRight = !facingRight;
-
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
     }
 
 }

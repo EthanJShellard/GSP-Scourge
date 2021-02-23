@@ -22,7 +22,7 @@ public class PlayerShoot : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
-                if (lookDirection.x >= 0 != transform.localScale.x >= 0) Flip();
+                if (lookDirection.x >= 0 != transform.localScale.x >= 0) GetComponent<Player>().Flip(); //Probably worth storing the Player object instead of getting each time. Didn't want to change your code too much. (E.S.)
                 FireProjectile();
                 currentTime = AttackTimer;
             }
@@ -31,13 +31,6 @@ public class PlayerShoot : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
         }
-    }
-
-    private void Flip()
-    {
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
     }
 
     private void FireProjectile()

@@ -475,6 +475,11 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3571076635287721642, guid: 524fba234127e26499c5fa02907ec225,
+        type: 3}
+      propertyPath: hitPoints
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5823524506844299528, guid: 524fba234127e26499c5fa02907ec225,
         type: 3}
       propertyPath: m_Name
@@ -686,6 +691,7 @@ GameObject:
   - component: {fileID: 1721094693}
   - component: {fileID: 1721094694}
   - component: {fileID: 1721094695}
+  - component: {fileID: 1721094696}
   m_Layer: 8
   m_Name: TestPlayer
   m_TagString: Player
@@ -861,6 +867,18 @@ MonoBehaviour:
     m_Bits: 512
   attackRange: 1
   damage: 1
+--- !u!114 &1721094696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721094688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0b2b464124d9ad4884fecf9c1d07f98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1947017525
 GameObject:
   m_ObjectHideFlags: 0

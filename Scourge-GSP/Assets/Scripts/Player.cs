@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class Player : MonoBehaviour
 {
+    bool facingRight = true;
+
     int HP = 5; //Only assigned to 5 for testing
 
     /// <summary>
@@ -29,5 +31,24 @@ public class Player : MonoBehaviour
     {
         //KILL
         Debug.Log("Player Killed");
+    }
+
+    /// <summary>
+    /// Flips the player sprite to the opposite direction in the x axis
+    /// </summary>
+    public void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
+
+    /// <summary>
+    /// Returns whether or not the player sprite is facing to the right.
+    /// </summary>
+    public bool IsFacingRight() 
+    {
+        return facingRight;
     }
 }

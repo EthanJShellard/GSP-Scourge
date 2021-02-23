@@ -20,6 +20,7 @@ public class PlaguedPersonMelee : Enemy
     private Rigidbody2D rb;
     bool attack = false;
     Animator animator;
+    ParticleSystem particleSystem;
 
 
     private enum MoveDirection { NONE, LEFT, RIGHT }
@@ -29,6 +30,7 @@ public class PlaguedPersonMelee : Enemy
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        particleSystem = GetComponent<ParticleSystem>();
     }
 
     private void FixedUpdate()
@@ -109,6 +111,8 @@ public class PlaguedPersonMelee : Enemy
 
     public override void Damage(int n)
     {
+        particleSystem.Play();
+
         hitPoints -= n;
         if (hitPoints <= 0) 
         {
