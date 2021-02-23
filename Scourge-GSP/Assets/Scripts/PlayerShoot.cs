@@ -12,6 +12,12 @@ public class PlayerShoot : MonoBehaviour
 
     private float currentTime = 0.0f;
     private Vector2 lookDirection;
+    private Player player;
+
+    private void Start()
+    {
+        player = GetComponent<Player>();
+    }
 
     private void Update()
     {
@@ -22,7 +28,7 @@ public class PlayerShoot : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
-                if (lookDirection.x >= 0 != transform.localScale.x >= 0) GetComponent<Player>().Flip(); //Probably worth storing the Player object instead of getting each time. Didn't want to change your code too much. (E.S.)
+                if (lookDirection.x >= 0 != transform.localScale.x >= 0) player.Flip();
                 FireProjectile();
                 currentTime = AttackTimer;
             }
