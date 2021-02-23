@@ -21,7 +21,7 @@ public class PlayerAttackStick : MonoBehaviour
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, enemies);
                 for(int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<Enemy>().Damage(damage);
+                    enemiesToDamage[i].GetComponent<Enemy>().Damage(damage, enemiesToDamage[i].transform.position - transform.position);
                 }
                 timeAttack = startTimeAttack;
             }

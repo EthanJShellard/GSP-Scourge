@@ -35,7 +35,7 @@ public class ProjectileController : MonoBehaviour
         }
         if (col.gameObject.tag == "Enemy")
         {
-            col.gameObject.GetComponent<Enemy>().Damage(2);
+            col.gameObject.GetComponent<Enemy>().Damage(2, GetComponent<Rigidbody2D>().velocity);
         }
     }
 }

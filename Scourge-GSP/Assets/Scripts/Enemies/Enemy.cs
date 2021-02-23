@@ -10,9 +10,11 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected int hitPoints; //Hit Points, Health Points
 
     /// <summary>
-    /// Deal n damage to this enemy.
+    /// 
     /// </summary>
-    public abstract void Damage(int n);
+    /// <param name="n">Amount of damage to deal</param>
+    /// <param name="impactDirection">Direction the damage is travelling in. (e.g. the normalised velocity of an arrow)</param>
+    public abstract void Damage(int n, Vector3 impactDirection);
 
     /// <summary>
     /// Kill this enemy/ cause it to die.

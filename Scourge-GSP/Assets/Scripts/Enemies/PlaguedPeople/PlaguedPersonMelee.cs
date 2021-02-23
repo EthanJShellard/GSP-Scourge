@@ -109,9 +109,13 @@ public class PlaguedPersonMelee : Enemy
         Destroy(this.gameObject);
     }
 
-    public override void Damage(int n)
+    public override void Damage(int n, Vector3 direction)
     {
-        particleSystem.Play();
+        //Orient blood particles to away from the attack.
+        if (direction.x < 0) particleSystem.shape.rotation.Set(0,0,-180);
+        else particleSystem.shape.rotation.Set(0, 0, 0);
+
+        particleSystem.Play();        
 
         hitPoints -= n;
         if (hitPoints <= 0) 
