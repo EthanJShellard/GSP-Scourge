@@ -20,8 +20,8 @@ public class PlaguedPersonMelee : Enemy
     private Rigidbody2D rb;
     bool attack = false;
     Animator animator;
-    ParticleSystem particleSystem;
-
+    ParticleSystem bloodParticleSystem;
+    SpriteRenderer spriteRenderer;
 
     private enum MoveDirection { NONE, LEFT, RIGHT }
     MoveDirection moveDir = MoveDirection.NONE;
@@ -30,7 +30,8 @@ public class PlaguedPersonMelee : Enemy
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        particleSystem = GetComponent<ParticleSystem>();
+        bloodParticleSystem = GetComponentInChildren<ParticleSystem>();
+        spriteRenderer = GetComponent<SpriteRenderer>();       
     }
 
     private void FixedUpdate()
@@ -75,23 +76,12 @@ public class PlaguedPersonMelee : Enemy
         if (player.position.x - transform.position.x > desiredRange) //If outside of melee range
         {
             moveDir = MoveDirection.RIGHT;
-            if (transform.localScale.x < 0) 
-            {
-                Vector2 scale = transform.localScale;
-                scale.x *= -1;
-                transform.localScale = scale;
-            }
-            
+            spriteRenderer.flipX = true;
         }
         else if (player.position.x - transform.position.x < -desiredRange)
         {
             moveDir = MoveDirection.LEFT;
-            if (transform.localScale.x > 0)
-            {
-                Vector2 scale = transform.localScale;
-                scale.x *= -1;
-                transform.localScale = scale;
-            }
+            spriteRenderer.flipX = false;
         }
         else 
         {
@@ -112,10 +102,9 @@ public class PlaguedPersonMelee : Enemy
     public override void Damage(int n, Vector3 direction)
     {
         //Orient blood particles to away from the attack.
-        if (direction.x < 0) particleSystem.shape.rotation.Set(0,0,-180);
-        else particleSystem.shape.rotation.Set(0, 0, 0);
-
-        particleSystem.Play();        
+        if (direction.x <= 0) bloodParticleSystem.transform.rotation.eulerAngles.Set(0,0,180);
+        else bloodParticleSystem.transform.rotation.eulerAngles.Set(0, 0, 0);
+        bloodParticleSystem.Play();        
 
         hitPoints -= n;
         if (hitPoints <= 0) 
