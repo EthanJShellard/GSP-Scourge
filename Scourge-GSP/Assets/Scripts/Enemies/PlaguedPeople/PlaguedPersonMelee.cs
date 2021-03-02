@@ -39,34 +39,47 @@ public class PlaguedPersonMelee : Enemy
 
     private void FixedUpdate()
     {
-        Collider2D[] player = Physics2D.OverlapCircleAll(transform.position, aggroRange, playerLayer);
-        if (player.Length > 0)
+        if (!attack)
         {
-            PathToPlayer(player[0].transform);
-        }
-        else 
-        {
-            moveDir = MoveDirection.NONE;
-        }
+
+            Collider2D[] player = Physics2D.OverlapCircleAll(transform.position, aggroRange, playerLayer);
+            if (player.Length > 0)
+            {
+                PathToPlayer(player[0].transform);
+            }
+            else
+            {
+                moveDir = MoveDirection.NONE;
+            }
 
 
-        Vector2 vel = rb.velocity;
-        switch (moveDir) 
+            Vector2 vel = rb.velocity;
+            switch (moveDir)
+            {
+                case MoveDirection.NONE:
+                    animator.SetBool("Walking", false);
+                    rb.velocity.Set(0, 0);
+                    break;
+                case MoveDirection.LEFT:
+                    animator.SetBool("Walking", true);
+                    vel.x = -walkSpeed;
+                    rb.velocity = vel;
+                    break;
+                case MoveDirection.RIGHT:
+                    animator.SetBool("Walking", true);
+                    vel.x = walkSpeed;
+                    rb.velocity = vel;
+                    break;
+            }
+
+        }
+        else //ATTACK IMPLEMENTATION BY FRAME
         {
-            case MoveDirection.NONE:
-                animator.SetBool("Walking", false);
-                rb.velocity.Set(0,0);
-                break;
-            case MoveDirection.LEFT:
-                animator.SetBool("Walking", true);
-                vel.x = -walkSpeed;
-                rb.velocity = vel;
-                break;
-            case MoveDirection.RIGHT:
-                animator.SetBool("Walking", true);
-                vel.x = walkSpeed;
-                rb.velocity = vel;
-                break;
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) 
+            {
+                attack = false;
+                animator.SetBool("Attacking", false);
+            }
         }
     }
 
@@ -76,12 +89,13 @@ public class PlaguedPersonMelee : Enemy
     /// <param name="player">The transform from the target player GameObject</param>
     private void PathToPlayer(Transform player) 
     {
-        if (player.position.x - transform.position.x > desiredRange) //If outside of melee range
+        float diff = player.position.x - transform.position.x;
+        if (diff > desiredRange) //If outside of melee range
         {
             moveDir = MoveDirection.RIGHT;
             spriteRenderer.flipX = true;
         }
-        else if (player.position.x - transform.position.x < -desiredRange)
+        else if (diff < -desiredRange)
         {
             moveDir = MoveDirection.LEFT;
             spriteRenderer.flipX = false;
@@ -89,6 +103,10 @@ public class PlaguedPersonMelee : Enemy
         else 
         {
             moveDir = MoveDirection.NONE;
+            animator.SetBool("Attacking", true);
+            spriteRenderer.flipX = (diff > 0);  
+            attack = true;
+            //TODO ADD ATTACK IMPLEMENTATION. LIKELY INVOLVING SOME KIND OF MOVING TRIGGER?
         }
     }
 
