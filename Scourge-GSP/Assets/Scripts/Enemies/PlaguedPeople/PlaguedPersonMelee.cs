@@ -16,11 +16,13 @@ public class PlaguedPersonMelee : Enemy
     /// Horizontal distance from the player that this enemy will aim for before stopping to attack
     /// </summary>
     [SerializeField] private float desiredRange;
+    [SerializeField] private float bloodForce;
 
     private Rigidbody2D rb;
     bool attack = false;
     Animator animator;
     ParticleSystem bloodParticleSystem;
+    ParticleSystemForceField forceField;
     SpriteRenderer spriteRenderer;
 
     private enum MoveDirection { NONE, LEFT, RIGHT }
@@ -31,6 +33,7 @@ public class PlaguedPersonMelee : Enemy
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         bloodParticleSystem = GetComponentInChildren<ParticleSystem>();
+        forceField = GetComponent<ParticleSystemForceField>();
         spriteRenderer = GetComponent<SpriteRenderer>();       
     }
 
@@ -101,9 +104,14 @@ public class PlaguedPersonMelee : Enemy
 
     public override void Damage(int n, Vector3 direction)
     {
+        direction.Normalize();
+
         //Orient blood particles to away from the attack.
-        if (direction.x <= 0) bloodParticleSystem.transform.rotation.eulerAngles.Set(0,0,180);
-        else bloodParticleSystem.transform.rotation.eulerAngles.Set(0, 0, 0);
+        if (direction.x <= 0) forceField.directionX = bloodForce * direction.x;
+        else forceField.directionX = bloodForce * direction.x;
+
+        forceField.directionY = direction.y * bloodForce;
+
         bloodParticleSystem.Play();        
 
         hitPoints -= n;
