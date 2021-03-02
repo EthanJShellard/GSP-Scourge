@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: 12577e91433e74f48beef3b8aaef94af
+guid: b225aef5df2fce64e9f61a168b0773fe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8113733890396793808
-    second: Attack animation_0
+      213: 6967858619114835654
+    second: Attack animation Centered_0
   - first:
-      213: 3743144347002457444
-    second: Attack animation_1
+      213: 8045058557991461220
+    second: Attack animation Centered_1
   - first:
-      213: -5951596984383984475
-    second: Attack animation_2
+      213: 8741533081727780611
+    second: Attack animation Centered_2
   - first:
-      213: 5894410383771762830
-    second: Attack animation_3
+      213: 5590720330407781917
+    second: Attack animation Centered_3
   - first:
-      213: -1578998061336521576
-    second: Attack animation_4
+      213: 6422026164455297442
+    second: Attack animation Centered_4
   - first:
-      213: -5608677645468637583
-    second: Attack animation_5
+      213: 5505122504455407377
+    second: Attack animation Centered_5
   - first:
-      213: -1078812731007004827
-    second: Attack animation_6
+      213: 7509375679795733790
+    second: Attack animation Centered_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -120,7 +120,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack animation_0
+      name: Attack animation Centered_0
       rect:
         serializedVersion: 2
         x: 0
@@ -134,14 +134,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0db26232cf5c99070800000000000000
-      internalID: 8113733890396793808
+      spriteID: 6cecb7d2f7ec2b060800000000000000
+      internalID: 6967858619114835654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack animation_1
+      name: Attack animation Centered_1
       rect:
         serializedVersion: 2
         x: 64
@@ -155,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46dc71a93f152f330800000000000000
-      internalID: 3743144347002457444
+      spriteID: 4612c4a422ac5af60800000000000000
+      internalID: 8045058557991461220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack animation_2
+      name: Attack animation Centered_2
       rect:
         serializedVersion: 2
         x: 128
@@ -176,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5aca18b531ea76da0800000000000000
-      internalID: -5951596984383984475
+      spriteID: 307c5b0f50a205970800000000000000
+      internalID: 8741533081727780611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack animation_3
+      name: Attack animation Centered_3
       rect:
         serializedVersion: 2
         x: 192
@@ -197,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e80071d93072dc150800000000000000
-      internalID: 5894410383771762830
+      spriteID: d16a284058a369d40800000000000000
+      internalID: 5590720330407781917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack animation_4
+      name: Attack animation Centered_4
       rect:
         serializedVersion: 2
         x: 256
@@ -218,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 894910d01a5461ae0800000000000000
-      internalID: -1578998061336521576
+      spriteID: 2a15f9e65ce9f1950800000000000000
+      internalID: 6422026164455297442
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack animation_5
+      name: Attack animation Centered_5
       rect:
         serializedVersion: 2
         x: 320
@@ -239,14 +239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 176ea22c569f922b0800000000000000
-      internalID: -5608677645468637583
+      spriteID: 117c21b10cf166c40800000000000000
+      internalID: 5505122504455407377
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack animation_6
+      name: Attack animation Centered_6
       rect:
         serializedVersion: 2
         x: 384
@@ -260,8 +260,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56f882579894701f0800000000000000
-      internalID: -1078812731007004827
+      spriteID: e15ae27f469a63860800000000000000
+      internalID: 7509375679795733790
       vertices: []
       indices: 
       edges: []

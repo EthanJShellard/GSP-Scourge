@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: aa0633336d7f55f4f96a7226bd2b8fa5
+guid: 2bd3ea67b041fc64c93d47644cc70855
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6016623095313019058
-    second: Plague Villager Walk_0
+      213: -665714314013362611
+    second: Plague Villager Walk Centered_0
   - first:
-      213: -1664163949854072101
-    second: Plague Villager Walk_1
+      213: 8310557597944338756
+    second: Plague Villager Walk Centered_1
   - first:
-      213: -4908892646958409891
-    second: Plague Villager Walk_2
+      213: -6148945609113181528
+    second: Plague Villager Walk Centered_2
   - first:
-      213: -163634065064088368
-    second: Plague Villager Walk_3
+      213: 3744096401396308999
+    second: Plague Villager Walk Centered_3
   - first:
-      213: 8963723329837877838
-    second: Plague Villager Walk_4
+      213: 5023305117104133577
+    second: Plague Villager Walk Centered_4
   - first:
-      213: 3005771271482264809
-    second: Plague Villager Walk_5
+      213: 4402954975423974158
+    second: Plague Villager Walk Centered_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -60,7 +60,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 64
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Plague Villager Walk_0
+      name: Plague Villager Walk Centered_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b03b87e3d65f7350800000000000000
-      internalID: 6016623095313019058
+      spriteID: d463757cb58e2c6f0800000000000000
+      internalID: -665714314013362611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plague Villager Walk_1
+      name: Plague Villager Walk Centered_1
       rect:
         serializedVersion: 2
         x: 64
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd2efe864b3b7e8e0800000000000000
-      internalID: -1664163949854072101
+      spriteID: 44955e6aa18055370800000000000000
+      internalID: 8310557597944338756
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plague Villager Walk_2
+      name: Plague Villager Walk Centered_2
       rect:
         serializedVersion: 2
         x: 128
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d575481652c10ebb0800000000000000
-      internalID: -4908892646958409891
+      spriteID: 8a26c990c8e8aaaa0800000000000000
+      internalID: -6148945609113181528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plague Villager Walk_3
+      name: Plague Villager Walk Centered_3
       rect:
         serializedVersion: 2
         x: 192
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0dca3be4fa7aabdf0800000000000000
-      internalID: -163634065064088368
+      spriteID: 70c9b0a07d3b5f330800000000000000
+      internalID: 3744096401396308999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plague Villager Walk_4
+      name: Plague Villager Walk Centered_4
       rect:
         serializedVersion: 2
         x: 256
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4a4edb60ea856c70800000000000000
-      internalID: 8963723329837877838
+      spriteID: 9c5d46fa36d56b540800000000000000
+      internalID: 5023305117104133577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plague Villager Walk_5
+      name: Plague Villager Walk Centered_5
       rect:
         serializedVersion: 2
         x: 320
@@ -236,8 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ec46c0db05a6b920800000000000000
-      internalID: 3005771271482264809
+      spriteID: e0b4f28e8307a1d30800000000000000
+      internalID: 4402954975423974158
       vertices: []
       indices: 
       edges: []

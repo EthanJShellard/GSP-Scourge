@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 62859c3a9d3242d48a7fde0f2df2fa7a
+guid: 63973c5ff14ad7f4facd5002b7f4f27f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8416353192107384784
-    second: Plague Villager Idle (2)_0
+      213: 1998397274485556919
+    second: Plague Villager Idle Centered_0
   - first:
-      213: -796590203268151341
-    second: Plague Villager Idle (2)_1
+      213: -4698285152767784185
+    second: Plague Villager Idle Centered_1
   - first:
-      213: -8042215176896995666
-    second: Plague Villager Idle (2)_2
+      213: -3773852543180583298
+    second: Plague Villager Idle Centered_2
   - first:
-      213: 5502644386690476797
-    second: Plague Villager Idle (2)_3
+      213: 1378020922052540790
+    second: Plague Villager Idle Centered_3
   - first:
-      213: -6983968469863926258
-    second: Plague Villager Idle (2)_4
+      213: -5362727065220395330
+    second: Plague Villager Idle Centered_4
   - first:
-      213: 8206001928423212159
-    second: Plague Villager Idle (2)_5
+      213: 8439904798568099564
+    second: Plague Villager Idle Centered_5
   - first:
-      213: 8948810714074046014
-    second: Plague Villager Idle (2)_6
+      213: 2396086676417263064
+    second: Plague Villager Idle Centered_6
   - first:
-      213: 1799422102375743069
-    second: Plague Villager Idle (2)_7
+      213: 6204663048041744101
+    second: Plague Villager Idle Centered_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -66,7 +66,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 64
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Plague Villager Idle (2)_0
+      name: Plague Villager Idle Centered_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0df19cfe2a4ecc470800000000000000
-      internalID: 8416353192107384784
+      spriteID: 7b602d1bbbbbbbb10800000000000000
+      internalID: 1998397274485556919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plague Villager Idle (2)_1
+      name: Plague Villager Idle Centered_1
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d745ae3e61f1f4f0800000000000000
-      internalID: -796590203268151341
+      spriteID: 70bc8cfcb865cceb0800000000000000
+      internalID: -4698285152767784185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plague Villager Idle (2)_2
+      name: Plague Villager Idle Centered_2
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eae9cc5f7ef446090800000000000000
-      internalID: -8042215176896995666
+      spriteID: e7e44015b1590abc0800000000000000
+      internalID: -3773852543180583298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plague Villager Idle (2)_3
+      name: Plague Villager Idle Centered_3
       rect:
         serializedVersion: 2
         x: 192
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfaabf95ae15d5c40800000000000000
-      internalID: 5502644386690476797
+      spriteID: 6797fff3ab6bf1310800000000000000
+      internalID: 1378020922052540790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plague Villager Idle (2)_4
+      name: Plague Villager Idle Centered_4
       rect:
         serializedVersion: 2
         x: 256
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e067b37eda5f31f90800000000000000
-      internalID: -6983968469863926258
+      spriteID: ebe4a2aa524c395b0800000000000000
+      internalID: -5362727065220395330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plague Villager Idle (2)_5
+      name: Plague Villager Idle Centered_5
       rect:
         serializedVersion: 2
         x: 320
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7406d1d64391e170800000000000000
-      internalID: 8206001928423212159
+      spriteID: cee24c0a2b0902570800000000000000
+      internalID: 8439904798568099564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plague Villager Idle (2)_6
+      name: Plague Villager Idle Centered_6
       rect:
         serializedVersion: 2
         x: 384
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3ed79e7eef803c70800000000000000
-      internalID: 8948810714074046014
+      spriteID: 8d5b5ee132c904120800000000000000
+      internalID: 2396086676417263064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plague Villager Idle (2)_7
+      name: Plague Villager Idle Centered_7
       rect:
         serializedVersion: 2
         x: 448
@@ -284,8 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5eb71d4ed4d8f810800000000000000
-      internalID: 1799422102375743069
+      spriteID: 5e645812b246b1650800000000000000
+      internalID: 6204663048041744101
       vertices: []
       indices: 
       edges: []

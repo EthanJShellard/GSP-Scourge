@@ -73,10 +73,15 @@ public class PlaguedPersonMelee : Enemy
             }
 
         }
-        else //ATTACK IMPLEMENTATION BY FRAME
+    }
+
+    private void Update()
+    {
+        if (attack) 
         {
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) 
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack")) //If attack animation is finished
             {
+                Debug.Log("Stopped");
                 attack = false;
                 animator.SetBool("Attacking", false);
             }
@@ -102,7 +107,11 @@ public class PlaguedPersonMelee : Enemy
         }
         else 
         {
+            //Stop Walking
             moveDir = MoveDirection.NONE;
+            animator.SetBool("Walking", false);
+            rb.velocity.Set(0, 0);
+            //Start Attacking
             animator.SetBool("Attacking", true);
             spriteRenderer.flipX = (diff > 0);  
             attack = true;
