@@ -20,6 +20,7 @@ public class PlaguedPersonMelee : Enemy
 
     private Rigidbody2D rb;
     bool attack = false;
+    int attackStateHash;
     Animator animator;
     ParticleSystem bloodParticleSystem;
     ParticleSystemForceField forceField;
@@ -34,7 +35,8 @@ public class PlaguedPersonMelee : Enemy
         animator = GetComponent<Animator>();
         bloodParticleSystem = GetComponentInChildren<ParticleSystem>();
         forceField = GetComponent<ParticleSystemForceField>();
-        spriteRenderer = GetComponent<SpriteRenderer>();       
+        spriteRenderer = GetComponent<SpriteRenderer>();    
+        
     }
 
     private void FixedUpdate()
@@ -73,15 +75,10 @@ public class PlaguedPersonMelee : Enemy
             }
 
         }
-    }
-
-    private void Update()
-    {
-        if (attack) 
+        else 
         {
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack")) //If attack animation is finished
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
             {
-                Debug.Log("Stopped");
                 attack = false;
                 animator.SetBool("Attacking", false);
             }
@@ -109,8 +106,6 @@ public class PlaguedPersonMelee : Enemy
         {
             //Stop Walking
             moveDir = MoveDirection.NONE;
-            animator.SetBool("Walking", false);
-            rb.velocity.Set(0, 0);
             //Start Attacking
             animator.SetBool("Attacking", true);
             spriteRenderer.flipX = (diff > 0);  
@@ -147,6 +142,16 @@ public class PlaguedPersonMelee : Enemy
 
             Kill();
         }
+    }
+
+    public void DamageFrameStart() 
+    {
+        Debug.Log("Start");
+    }
+
+    public void DamageFramesEnd() 
+    {
+        Debug.Log("End");
     }
 
     //Default enemy values
