@@ -645,8 +645,13 @@ PrefabInstance:
     - target: {fileID: 3224877688009499862, guid: 524fba234127e26499c5fa02907ec225,
         type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3571076635287721642, guid: 524fba234127e26499c5fa02907ec225,
+        type: 3}
+      propertyPath: hb
+      value: 
+      objectReference: {fileID: 1157352244}
     - target: {fileID: 3571076635287721642, guid: 524fba234127e26499c5fa02907ec225,
         type: 3}
       propertyPath: hitPoints
@@ -670,7 +675,7 @@ PrefabInstance:
     - target: {fileID: 6422330955899615429, guid: 524fba234127e26499c5fa02907ec225,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.64
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 6422330955899615429, guid: 524fba234127e26499c5fa02907ec225,
         type: 3}
@@ -855,6 +860,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1157352244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7203513299981498745, guid: 524fba234127e26499c5fa02907ec225,
+    type: 3}
+  m_PrefabInstance: {fileID: 802348433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1174990825
 GameObject:
   m_ObjectHideFlags: 0

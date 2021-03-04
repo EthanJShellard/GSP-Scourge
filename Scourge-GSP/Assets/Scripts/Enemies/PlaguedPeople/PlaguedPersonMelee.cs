@@ -18,6 +18,10 @@ public class PlaguedPersonMelee : Enemy
     [SerializeField] private float desiredRange;
     [SerializeField] private float bloodForce;
 
+    //test stuff
+    [SerializeField] private GameObject hb;
+    private bool movingRight = false;
+
     private Rigidbody2D rb;
     bool attack = false;
     int attackStateHash;
@@ -43,7 +47,10 @@ public class PlaguedPersonMelee : Enemy
     {
         if (!attack)
         {
+            //used for changing the location of the melee hit box
+            bool tempDirectionChanged = movingRight;
 
+            
             Collider2D[] player = Physics2D.OverlapCircleAll(transform.position, aggroRange, playerLayer);
             if (player.Length > 0)
             {
@@ -54,6 +61,14 @@ public class PlaguedPersonMelee : Enemy
                 moveDir = MoveDirection.NONE;
             }
 
+
+            //hit box movement
+            if (movingRight != tempDirectionChanged)
+            {
+                Vector3 hitScale = hb.transform.localScale;
+                hitScale.x *= -1;
+                hb.transform.localScale = hitScale;
+            }
 
             Vector2 vel = rb.velocity;
             switch (moveDir)
@@ -96,11 +111,13 @@ public class PlaguedPersonMelee : Enemy
         {
             moveDir = MoveDirection.RIGHT;
             spriteRenderer.flipX = true;
+            movingRight = true;
         }
         else if (diff < -desiredRange)
         {
             moveDir = MoveDirection.LEFT;
             spriteRenderer.flipX = false;
+            movingRight = false;
         }
         else 
         {
