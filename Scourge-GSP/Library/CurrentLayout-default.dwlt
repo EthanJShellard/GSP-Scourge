@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 742}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 742}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -112,8 +112,8 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 618, y: 692}
-  m_MaxSize: {x: 12003, y: 18042}
+  m_MinSize: {x: 618, y: 713}
+  m_MaxSize: {x: 12003, y: 18063}
   vertical: 1
   controlID: 123
 --- !u!114 &6
@@ -138,8 +138,8 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 596
-  m_MinSize: {x: 618, y: 421}
-  m_MaxSize: {x: 12003, y: 8021}
+  m_MinSize: {x: 618, y: 442}
+  m_MaxSize: {x: 12003, y: 8042}
   vertical: 0
   controlID: 124
 --- !u!114 &7
@@ -163,8 +163,8 @@ MonoBehaviour:
     y: 0
     width: 352
     height: 596
-  m_MinSize: {x: 241, y: 421}
-  m_MaxSize: {x: 4001, y: 8021}
+  m_MinSize: {x: 241, y: 442}
+  m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
   controlID: 43
 --- !u!114 &8
@@ -186,8 +186,8 @@ MonoBehaviour:
     y: 0
     width: 352
     height: 295
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -1352
+  m_LastSelectedObjectID: -1206
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -544,9 +544,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -3.40905, y: -0.7821927, z: -0.659015}
+    m_Target: {x: -3.5230706, y: -0.88535637, z: -1.0068359}
     speed: 2
-    m_Value: {x: -3.4190178, y: -0.81002736, z: -0.64864}
+    m_Value: {x: -3.5230706, y: -0.88535637, z: -1.0068359}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -596,9 +596,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 2.410831
+    m_Target: 3.0640817
     speed: 2
-    m_Value: 2.3070152
+    m_Value: 3.0640817
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -781,20 +781,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets
   m_LastFoldersGridSize: 16
   m_LastProjectPath: E:\Main Items\Studio Project\Git Pulls\GSP-Scourge\Scourge-GSP
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f63c0000
-    m_LastClickedID: 15606
-    m_ExpandedIDs: 00000000e03a0000e23a0000e43a000000ca9a3b
+    m_SelectedIDs: e03a0000
+    m_LastClickedID: 15072
+    m_ExpandedIDs: 00000000e03a0000e23a0000e43a0000fa3c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -850,7 +850,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c623000098390000903c0000703a0000
+    m_ExpandedInstanceIDs: c623000098390000903c0000703a000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

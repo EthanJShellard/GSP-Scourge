@@ -18,9 +18,8 @@ public class PlaguedPersonMelee : Enemy
     [SerializeField] private float desiredRange;
     [SerializeField] private float bloodForce;
 
-    //test stuff
+    //hit box stuff
     [SerializeField] private GameObject hb;
-    private bool movingRight = false;
 
     private Rigidbody2D rb;
     bool attack = false;
@@ -47,8 +46,6 @@ public class PlaguedPersonMelee : Enemy
     {
         if (!attack)
         {
-            //used for changing the location of the melee hit box
-            bool tempDirectionChanged = movingRight;
 
             
             Collider2D[] player = Physics2D.OverlapCircleAll(transform.position, aggroRange, playerLayer);
@@ -59,15 +56,6 @@ public class PlaguedPersonMelee : Enemy
             else
             {
                 moveDir = MoveDirection.NONE;
-            }
-
-
-            //hit box movement
-            if (movingRight != tempDirectionChanged)
-            {
-                Vector3 hitScale = hb.transform.localScale;
-                hitScale.x *= -1;
-                hb.transform.localScale = hitScale;
             }
 
             Vector2 vel = rb.velocity;
@@ -111,13 +99,19 @@ public class PlaguedPersonMelee : Enemy
         {
             moveDir = MoveDirection.RIGHT;
             spriteRenderer.flipX = true;
-            movingRight = true;
+            if (hb.transform.localScale.x > 0)
+            {
+                flipHitBox();
+            }
         }
         else if (diff < -desiredRange)
         {
             moveDir = MoveDirection.LEFT;
             spriteRenderer.flipX = false;
-            movingRight = false;
+            if (hb.transform.localScale.x < 0)
+            {
+                flipHitBox();
+            }
         }
         else 
         {
@@ -129,6 +123,13 @@ public class PlaguedPersonMelee : Enemy
             attack = true;
             //TODO ADD ATTACK IMPLEMENTATION. LIKELY INVOLVING SOME KIND OF MOVING TRIGGER?
         }
+    }
+
+    void flipHitBox()
+    {
+        Vector3 hitScale = hb.transform.localScale;
+        hitScale.x *= -1;
+        hb.transform.localScale = hitScale;
     }
 
     override public void Kill() 

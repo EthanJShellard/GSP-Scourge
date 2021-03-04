@@ -657,6 +657,21 @@ PrefabInstance:
       propertyPath: hitPoints
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4030276718979617027, guid: 524fba234127e26499c5fa02907ec225,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030276718979617027, guid: 524fba234127e26499c5fa02907ec225,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030276718979617027, guid: 524fba234127e26499c5fa02907ec225,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5823524506844299528, guid: 524fba234127e26499c5fa02907ec225,
         type: 3}
       propertyPath: m_Name
