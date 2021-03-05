@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
 
     int HP = 5; //Only assigned to 5 for testing
 
+    [SerializeField] private Transform player;
+    [SerializeField] private Transform spawnPoint;
+
     /// <summary>
     /// Damage the player. Will cause death of HP is reduced below 0.
     /// </summary>
@@ -30,7 +33,7 @@ public class Player : MonoBehaviour
     public void Kill() 
     {
         //KILL
-        Debug.Log("Player Killed");
+        player.transform.position = spawnPoint.transform.position;
     }
 
     /// <summary>
