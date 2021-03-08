@@ -23,7 +23,6 @@ public class PlaguedPersonMelee : Enemy
 
     private Rigidbody2D rb;
     bool attack = false;
-    int attackStateHash;
     Animator animator;
     ParticleSystem bloodParticleSystem;
     ParticleSystemForceField forceField;
@@ -101,7 +100,7 @@ public class PlaguedPersonMelee : Enemy
             spriteRenderer.flipX = true;
             if (hb.transform.localScale.x > 0)
             {
-                flipHitBox();
+                FlipHitBox();
             }
         }
         else if (diff < -desiredRange)
@@ -110,7 +109,7 @@ public class PlaguedPersonMelee : Enemy
             spriteRenderer.flipX = false;
             if (hb.transform.localScale.x < 0)
             {
-                flipHitBox();
+                FlipHitBox();
             }
         }
         else 
@@ -121,11 +120,10 @@ public class PlaguedPersonMelee : Enemy
             animator.SetBool("Attacking", true);
             spriteRenderer.flipX = (diff > 0);  
             attack = true;
-            //TODO ADD ATTACK IMPLEMENTATION. LIKELY INVOLVING SOME KIND OF MOVING TRIGGER?
         }
     }
 
-    void flipHitBox()
+    void FlipHitBox()
     {
         Vector3 hitScale = hb.transform.localScale;
         hitScale.x *= -1;
