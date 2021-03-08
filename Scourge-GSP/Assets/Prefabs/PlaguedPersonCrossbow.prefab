@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1268302850738045410}
   - component: {fileID: 4446989600325658416}
   - component: {fileID: 1893617822116630087}
+  - component: {fileID: 8178687041809381941}
   m_Layer: 9
   m_Name: PlaguedPersonCrossbow
   m_TagString: Untagged
@@ -5372,3 +5373,22 @@ ParticleSystemForceField:
         m_RotationOrder: 4
     m_MultiplyDragByParticleSize: 1
     m_MultiplyDragByParticleVelocity: 1
+--- !u!114 &8178687041809381941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5823524506844299528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298d871375d14a34399315f6a62e157f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 5
+  aggroRange: 5
+  attackDamage: 1
+  attackCooldown: 3
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256

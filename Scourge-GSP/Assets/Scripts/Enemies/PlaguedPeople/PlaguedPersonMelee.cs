@@ -160,16 +160,6 @@ public class PlaguedPersonMelee : Enemy
         }
     }
 
-    public void DamageFrameStart() 
-    {
-        Debug.Log("Start");
-    }
-
-    public void DamageFramesEnd() 
-    {
-        Debug.Log("End");
-    }
-
     //Default enemy values
     private void Reset()
     {
