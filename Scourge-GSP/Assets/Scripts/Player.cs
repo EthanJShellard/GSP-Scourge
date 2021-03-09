@@ -9,11 +9,16 @@ public class Player : MonoBehaviour
 {
 
     bool facingRight = true;
+    int HP; //Only assigned to 5 for testing
 
-    int HP = 5; //Only assigned to 5 for testing
+    [SerializeField] private Transform player;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private int maxHP;
 
-    [SerializeField] public Transform player;
-    [SerializeField] public Transform spawnPoint;
+    private void Start()
+    {
+        HP = maxHP;
+    }
 
     private void Update()
     {
@@ -43,6 +48,7 @@ public class Player : MonoBehaviour
     {
         //KILL
         player.transform.position = GameObject.FindWithTag("Respawn").transform.position;
+        HP = maxHP;
     }
 
     /// <summary>

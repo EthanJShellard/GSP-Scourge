@@ -8,6 +8,7 @@ public class PlaguedPersonCrossbow : Enemy
     [SerializeField] private int attackDamage;
     [SerializeField] private float attackCooldown; //Time between attacks
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private GameObject crossbowBolt;
 
     float attackTimer;
     bool attackReady;
@@ -53,7 +54,10 @@ public class PlaguedPersonCrossbow : Enemy
                 attackReady = false;
                 attackTimer = attackCooldown;
                 StartCoroutine(DisableAttackAfterOneFrame());
-                //Spawn Projectile
+                //Spawn Projectile(Maybe change to object pooling)
+                GameObject cb = Instantiate(crossbowBolt);
+                cb.transform.position = transform.position;
+                cb.GetComponent<Bolt>().SetDirection(diff.x > 0);
 
             }
         }

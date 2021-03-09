@@ -2265,6 +2265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1721094690}
   spawnPoint: {fileID: 42216491}
+  maxHP: 5
 --- !u!95 &1721094697
 Animator:
   serializedVersion: 3

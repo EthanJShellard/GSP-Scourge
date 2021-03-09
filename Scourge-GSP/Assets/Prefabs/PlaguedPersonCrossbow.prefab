@@ -5386,9 +5386,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoints: 5
-  aggroRange: 5
+  aggroRange: 10
   attackDamage: 1
   attackCooldown: 3
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+  crossbowBolt: {fileID: 1849503503961626679, guid: 54d22f32d13dc93478ee4b7fc25af941,
+    type: 3}
