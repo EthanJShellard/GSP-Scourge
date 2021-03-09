@@ -9,23 +9,43 @@ public class Player : MonoBehaviour
 {
 
     bool facingRight = true;
-    int HP; //Only assigned to 5 for testing
+    [SerializeField] int HP; //Only assigned to 5 for testing
 
     [SerializeField] private Transform player;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private int maxHP;
 
+    [SerializeField] private float iFramesTimer = 0.5f; //set to 0.5 for testing
+    [SerializeField] bool canBeHit = true;
+    private float iTimeLeft;
+
     private void Start()
     {
+        iTimeLeft = iFramesTimer;
         HP = maxHP;
     }
 
     private void Update()
     {
+        if (HP <= 0)
+        {
+            Kill();
+        }
         if (Input.GetKey(KeyCode.Z))
         {
             Kill();
         }
+
+        if (iTimeLeft <= 0)
+        {
+            canBeHit = true;
+        }
+        else
+        {
+            iTimeLeft -= Time.deltaTime;
+            canBeHit = false;
+        }
+
     }
 
     /// <summary>
@@ -68,5 +88,20 @@ public class Player : MonoBehaviour
     public bool IsFacingRight() 
     {
         return facingRight;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "EnemyMeleeHitBox")
+        {
+            Debug.Log("here");
+            if (canBeHit)
+            {
+                Debug.Log("here2");
+                PlaguedPersonMelee pm = collision.gameObject.GetComponent<PlaguedPersonMelee>();
+                Damage(pm.GetDamageDealt());
+                iTimeLeft = iFramesTimer;
+            }
+        }
     }
 }

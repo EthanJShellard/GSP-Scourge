@@ -58,6 +58,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+  damageDealt: 0
   desiredRange: 1
   bloodForce: 50
   hb: {fileID: 7203513299981498745}
@@ -5439,7 +5440,7 @@ GameObject:
   - component: {fileID: 8103401194648500745}
   m_Layer: 9
   m_Name: HitBoxBack
-  m_TagString: Untagged
+  m_TagString: EnemyMeleeHitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

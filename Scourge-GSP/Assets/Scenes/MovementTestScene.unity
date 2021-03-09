@@ -687,6 +687,11 @@ PrefabInstance:
       propertyPath: hitPoints
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3571076635287721642, guid: 524fba234127e26499c5fa02907ec225,
+        type: 3}
+      propertyPath: damageDealt
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4030276718979617027, guid: 524fba234127e26499c5fa02907ec225,
         type: 3}
       propertyPath: m_FlipX
@@ -2263,9 +2268,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b2b464124d9ad4884fecf9c1d07f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 0
   player: {fileID: 1721094690}
   spawnPoint: {fileID: 42216491}
   maxHP: 5
+  iFramesTimer: 0.5
+  canBeHit: 1
 --- !u!95 &1721094697
 Animator:
   serializedVersion: 3
@@ -2350,6 +2358,11 @@ PrefabInstance:
     - target: {fileID: 6422330955899615429, guid: a79aa9aebc2c3004f9ff505b05dd217d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178687041809381941, guid: a79aa9aebc2c3004f9ff505b05dd217d,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
