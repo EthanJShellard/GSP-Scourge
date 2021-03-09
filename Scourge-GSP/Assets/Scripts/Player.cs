@@ -7,12 +7,13 @@ using UnityEngine;
 /// </summary>
 public class Player : MonoBehaviour
 {
+
     bool facingRight = true;
 
     int HP = 5; //Only assigned to 5 for testing
 
-    [SerializeField] private Transform player;
-    [SerializeField] private Transform spawnPoint;
+    [SerializeField] public Transform player;
+    [SerializeField] public Transform spawnPoint;
 
     /// <summary>
     /// Damage the player. Will cause death of HP is reduced below 0.
@@ -20,20 +21,26 @@ public class Player : MonoBehaviour
     /// <param name="n">Amount of damage inflicted.</param>
     public void Damage(int n) 
     {
-        HP -= n;
+       /* HP -= n;
         if (HP < 0) 
         {
             Kill();
+        }
+       */
+       if (Input.GetKey(KeyCode.Z))
+        {
+            Kill();
+            Debug.Log("key pressed please kill character");
         }
     }
 
     /// <summary>
     /// Call to trigger player death.
     /// </summary>
-    public void Kill() 
+    public void Kill()
     {
         //KILL
-        player.transform.position = spawnPoint.transform.position;
+        player.transform.position = GameObject.FindWithTag("Respawn").transform.position;
     }
 
     /// <summary>
