@@ -15,22 +15,24 @@ public class Player : MonoBehaviour
     [SerializeField] public Transform player;
     [SerializeField] public Transform spawnPoint;
 
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Z))
+        {
+            Kill();
+        }
+    }
+
     /// <summary>
     /// Damage the player. Will cause death of HP is reduced below 0.
     /// </summary>
     /// <param name="n">Amount of damage inflicted.</param>
     public void Damage(int n) 
     {
-       /* HP -= n;
+       HP -= n;
         if (HP < 0) 
         {
             Kill();
-        }
-       */
-       if (Input.GetKey(KeyCode.Z))
-        {
-            Kill();
-            Debug.Log("key pressed please kill character");
         }
     }
 
