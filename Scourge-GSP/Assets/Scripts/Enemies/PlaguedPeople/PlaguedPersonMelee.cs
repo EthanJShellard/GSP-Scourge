@@ -118,6 +118,7 @@ public class PlaguedPersonMelee : Enemy
             moveDir = MoveDirection.NONE;
             //Start Attacking
             animator.SetBool("Attacking", true);
+            StartCoroutine(DisableAttackAfterOneFrame());
             spriteRenderer.flipX = (diff > 0);  
             attack = true;
         }
@@ -169,4 +170,10 @@ public class PlaguedPersonMelee : Enemy
         aggroRange = 10;
     }
 
+    IEnumerator DisableAttackAfterOneFrame()
+    {
+        yield return 0;
+
+        animator.SetBool("Attacking", false);
+    }
 }

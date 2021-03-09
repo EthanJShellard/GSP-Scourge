@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     /// <param name="n">Amount of damage inflicted.</param>
     public void Damage(int n) 
     {
-       HP -= n;
+        HP -= n;
         if (HP < 0) 
         {
             Kill();
