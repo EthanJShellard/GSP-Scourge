@@ -45,7 +45,7 @@ public class PlaguedPersonMelee : Enemy
     {
         if (!attack)
         {
-
+            hb.SetActive(false);
             
             Collider2D[] player = Physics2D.OverlapCircleAll(transform.position, aggroRange, playerLayer);
             if (player.Length > 0)
@@ -81,6 +81,7 @@ public class PlaguedPersonMelee : Enemy
         {
             if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
             {
+                hb.SetActive(true);
                 attack = false;
                 animator.SetBool("Attacking", false);
             }

@@ -41,7 +41,6 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
-        bool wasGrounded = grounded;
         grounded = false;
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundedRadius, whatIsGround);

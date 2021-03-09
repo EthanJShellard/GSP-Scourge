@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         {
             iTimeLeft = iFramesTimer;
             HP -= n;
-            if (HP < 0)
+            if (HP <= 0)
             {
                 Kill();
             }

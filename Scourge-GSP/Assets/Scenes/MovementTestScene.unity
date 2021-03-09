@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 673720170}
   - component: {fileID: 673720172}
   - component: {fileID: 673720171}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tilemap_Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -930,7 +930,7 @@ GameObject:
   - component: {fileID: 1174990831}
   - component: {fileID: 1174990830}
   - component: {fileID: 1174990829}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tilemap_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2218,7 +2218,7 @@ MonoBehaviour:
   groundCheck: {fileID: 1947017526}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 1024
 --- !u!114 &1721094694
 MonoBehaviour:
   m_ObjectHideFlags: 0
