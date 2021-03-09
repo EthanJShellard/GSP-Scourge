@@ -5438,6 +5438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8548342588911483113}
   - component: {fileID: 8103401194648500745}
+  - component: {fileID: 3828107309494511031}
   m_Layer: 9
   m_Name: HitBoxBack
   m_TagString: EnemyMeleeHitBox
@@ -5485,3 +5486,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.14604029, y: 0.5053016}
   m_EdgeRadius: 0
+--- !u!114 &3828107309494511031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8997551553480261314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1506111f8cfd6f488c8ddda30adfe5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageDealt: 1

@@ -12,7 +12,6 @@ public class PlaguedPersonMelee : Enemy
     [SerializeField] private float walkSpeed;
     [SerializeField] private float aggroRange;
     [SerializeField] private LayerMask playerLayer;
-    [SerializeField] private int damageDealt;
     /// <summary>
     /// Horizontal distance from the player that this enemy will aim for before stopping to attack
     /// </summary>
@@ -169,11 +168,6 @@ public class PlaguedPersonMelee : Enemy
         attackDamage = 1;
         walkSpeed = 1;
         aggroRange = 10;
-    }
-
-    public int GetDamageDealt()
-    {
-        return damageDealt;
     }
 
     IEnumerator DisableAttackAfterOneFrame()

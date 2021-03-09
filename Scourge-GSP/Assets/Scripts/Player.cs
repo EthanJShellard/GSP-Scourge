@@ -27,10 +27,6 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (HP <= 0)
-        {
-            Kill();
-        }
         if (Input.GetKey(KeyCode.Z))
         {
             Kill();
@@ -54,11 +50,15 @@ public class Player : MonoBehaviour
     /// <param name="n">Amount of damage inflicted.</param>
     public void Damage(int n) 
     {
-        HP -= n;
-        if (HP < 0) 
+        if (canBeHit)
         {
-            Kill();
-        }
+            iTimeLeft = iFramesTimer;
+            HP -= n;
+            if (HP < 0)
+            {
+                Kill();
+            }
+        }        
     }
 
     /// <summary>
@@ -90,18 +90,4 @@ public class Player : MonoBehaviour
         return facingRight;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "EnemyMeleeHitBox")
-        {
-            Debug.Log("here");
-            if (canBeHit)
-            {
-                Debug.Log("here2");
-                PlaguedPersonMelee pm = collision.gameObject.GetComponent<PlaguedPersonMelee>();
-                Damage(pm.GetDamageDealt());
-                iTimeLeft = iFramesTimer;
-            }
-        }
-    }
 }
