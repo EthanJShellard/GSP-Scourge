@@ -39,7 +39,6 @@ public class PlaguedPersonCrossbow : Enemy
 
     private void FixedUpdate()
     {
-        //AIOGNLKJDBG
         Collider2D[] player = Physics2D.OverlapCircleAll(transform.position, aggroRange, playerLayer);
         if (player.Length > 0) 
         {
