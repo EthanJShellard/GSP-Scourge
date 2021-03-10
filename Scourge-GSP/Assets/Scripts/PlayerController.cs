@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask whatIsGround;
 
     private Rigidbody2D rb;
+    private Animator animator;
 
     private float horizontalInput;
     private bool jump = false;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         player = GetComponent<Player>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -52,6 +54,15 @@ public class PlayerController : MonoBehaviour
         Vector3 targetVelocity = new Vector2(horizontalInput * speed * Time.fixedDeltaTime * velocityMultiplier, rb.velocity.y);
 
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref baseVelocity, moveSmoothing);
+
+        if (horizontalInput != 0)
+        {
+            animator.SetBool("Running", true);
+        }
+        else 
+        {
+            animator.SetBool("Running", false);
+        }
 
 
         if (horizontalInput > 0 && !player.IsFacingRight())
