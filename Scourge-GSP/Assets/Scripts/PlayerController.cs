@@ -6,21 +6,20 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private float speed;
-    [Range(0, .3f)] [SerializeField] private float moveSmoothing = .05f;
     [SerializeField] private float jumpForce;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private float jumpTime;
 
     private Rigidbody2D rb;
     private Animator animator;
 
     private float horizontalInput;
-    private bool jump = false;
     private bool grounded = false;
+    private float jumpTimeCounter;
+    private bool isJumping;
 
     const float groundedRadius = .2f;
-    const float velocityMultiplier = 10f;
-    private Vector3 baseVelocity = Vector3.zero;
     private Player player;
 
     void Start()
@@ -32,28 +31,41 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        if (Input.GetButtonDown("Jump") && grounded)
-            jump = true;
-        if (Input.GetButtonUp("Jump"))
-            jump = false;
+        //jump controls
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
+        
+        if (grounded == true && Input.GetKeyDown(KeyCode.Space))
+        {
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
+            rb.velocity = Vector2.up * jumpForce;
+        }
+
+        if (Input.GetKey(KeyCode.Space) && isJumping)
+        {
+            if (jumpTimeCounter > 0)
+            {
+                rb.velocity = Vector2.up * jumpForce;
+                jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                isJumping = false;
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            isJumping = false;
+        }
+        //end jump controls
 
     }
 
     void FixedUpdate()
     {
-
-        grounded = false;
-
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundedRadius, whatIsGround);
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            grounded = true;
-        }
-
-        Vector3 targetVelocity = new Vector2(horizontalInput * speed * Time.fixedDeltaTime * velocityMultiplier, rb.velocity.y);
-
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref baseVelocity, moveSmoothing);
+        //horizontal movement
+        horizontalInput = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
 
         if (horizontalInput != 0)
         {
@@ -64,7 +76,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Running", false);
         }
 
-
         if (horizontalInput > 0 && !player.IsFacingRight())
         {
             player.Flip();
@@ -73,12 +84,7 @@ public class PlayerController : MonoBehaviour
         {
             player.Flip();
         }
-        
-        if (grounded && jump)
-        {
-            grounded = false;
-            rb.AddForce(new Vector2(.0f, jumpForce));
-        }
+        //end horizontal movement
 
     }
 

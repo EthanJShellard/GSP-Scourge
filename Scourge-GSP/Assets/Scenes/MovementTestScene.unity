@@ -7499,13 +7499,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3face0d8dbf741409e36009782efe82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 25
-  moveSmoothing: 0.188
-  jumpForce: 200
+  speed: 7
+  jumpForce: 6
   groundCheck: {fileID: 1947017526}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
+  jumpTime: 0.35
 --- !u!114 &1721094694
 MonoBehaviour:
   m_ObjectHideFlags: 0
