@@ -44,9 +44,7 @@ public class PlaguedPersonMelee : Enemy
     private void FixedUpdate()
     {
         if (!attack)
-        {
-            hb.SetActive(false);
-            
+        {            
             Collider2D[] player = Physics2D.OverlapCircleAll(transform.position, aggroRange, playerLayer);
             if (player.Length > 0)
             {
@@ -76,15 +74,6 @@ public class PlaguedPersonMelee : Enemy
                     break;
             }
 
-        }
-        else 
-        {
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
-            {
-                hb.SetActive(true);
-                attack = false;
-                animator.SetBool("Attacking", false);
-            }
         }
     }
 
@@ -121,7 +110,6 @@ public class PlaguedPersonMelee : Enemy
             animator.SetBool("Attacking", true);
             StartCoroutine(DisableAttackAfterOneFrame());
             spriteRenderer.flipX = (diff > 0);  
-            attack = true;
         }
     }
 
@@ -160,6 +148,11 @@ public class PlaguedPersonMelee : Enemy
 
             Kill();
         }
+    }
+
+    public void SetAttacking(int b) 
+    {
+        attack = (b != 0);
     }
 
     //Default enemy values
