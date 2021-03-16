@@ -7412,6 +7412,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaguedPersonCrossbow
       objectReference: {fileID: 0}
+    - target: {fileID: 5823524506844299528, guid: a79aa9aebc2c3004f9ff505b05dd217d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6422330955899615429, guid: a79aa9aebc2c3004f9ff505b05dd217d,
         type: 3}
       propertyPath: m_RootOrder
