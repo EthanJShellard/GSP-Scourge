@@ -29,13 +29,10 @@ public class ProjectileController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag != "Player")
-        {
-            Destroy(this.gameObject);
-        }
-        if (col.gameObject.tag == "Enemy")
+        if (col.CompareTag("Enemy"))
         {
             col.gameObject.GetComponent<Enemy>().Damage(2, GetComponent<Rigidbody2D>().velocity);
         }
+        Destroy(this.gameObject);
     }
 }
