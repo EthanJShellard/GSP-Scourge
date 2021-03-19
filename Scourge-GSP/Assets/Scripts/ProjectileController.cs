@@ -33,6 +33,10 @@ public class ProjectileController : MonoBehaviour
         {
             col.gameObject.GetComponent<Enemy>().Damage(2, GetComponent<Rigidbody2D>().velocity);
         }
+        else if (col.isTrigger) 
+        {
+            return; //Early return to stop projectile destroying itself on other triggers
+        }
         Destroy(this.gameObject);
     }
 }
