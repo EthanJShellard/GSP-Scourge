@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - EnemyMeleeHitBox
   - GM
+  - Resume
+  - MainMenu
+  - Quit
   layers:
   - Default
   - TransparentFX
