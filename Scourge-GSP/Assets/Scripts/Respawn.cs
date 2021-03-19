@@ -8,14 +8,25 @@ using System.Linq;
 
 public class Respawn : MonoBehaviour
 {
-    public Transform player;
+    public bool isActive;
     public Transform respawnPoint;
+
+    void Start()
+    {
+        isActive = false;
+    }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            player.transform.position = respawnPoint.transform.position;
+            SetRespawnPoint();
         }
+    }
+
+    void SetRespawnPoint()
+    {
+        isActive = true;
+        transform.position = respawnPoint.position;
     }
 }

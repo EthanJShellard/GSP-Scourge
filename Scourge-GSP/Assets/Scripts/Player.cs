@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class Player : MonoBehaviour
 {
+    public Respawn respawnPoint;
 
     bool facingRight = true;
     [SerializeField] int HP; //Only assigned to 5 for testing
@@ -67,7 +68,7 @@ public class Player : MonoBehaviour
     public void Kill()
     {
         //KILL
-        GetComponent<Respawn>();
+        player.transform.position = respawnPoint.transform.position;
         HP = maxHP;
     }
 

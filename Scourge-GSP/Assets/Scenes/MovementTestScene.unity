@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81725ce7319602b49a3277c7adf7d970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1721094690}
+  isActive: 0
   respawnPoint: {fileID: 42216491}
 --- !u!61 &42216493
 BoxCollider2D:
@@ -7391,6 +7391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b2b464124d9ad4884fecf9c1d07f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 42216492}
   HP: 0
   player: {fileID: 1721094690}
   spawnPoint: {fileID: 42216491}
