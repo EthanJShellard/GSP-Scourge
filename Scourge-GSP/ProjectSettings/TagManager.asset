@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - EnemyMeleeHitBox
+  - GM
   layers:
   - Default
   - TransparentFX

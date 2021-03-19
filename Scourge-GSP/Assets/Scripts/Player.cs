@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
     public void Kill()
     {
         //KILL
-        player.transform.position = Respawn.GetActiveRP();
+        GetComponent<Respawn>();
         HP = maxHP;
     }
 
