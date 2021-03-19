@@ -23,17 +23,17 @@ public class PauseMenuController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             isOpen = !isOpen;
-        }
 
-        if (isOpen)
-        {
-            pauseMenu.SetActive(true);
-            Time.timeScale = 0;
-        }
-        else
-        {
-            pauseMenu.SetActive(false);
-            Time.timeScale = 1;
+            if (isOpen)
+            {
+                pauseMenu.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else
+            {
+                pauseMenu.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
     }
 
@@ -43,6 +43,8 @@ public class PauseMenuController : MonoBehaviour
         {
             case "Resume":
                 isOpen = false;
+                pauseMenu.SetActive(false);
+                Time.timeScale = 1;
                 break;
             case "MainMenu":
                 pauseMenu.SetActive(false);
