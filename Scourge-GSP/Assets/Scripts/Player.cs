@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class Player : MonoBehaviour
 {
-    public Respawn respawnPoint;
+    private Respawn respawn;
 
     bool facingRight = true;
     [SerializeField] int HP; //Only assigned to 5 for testing
@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
     /// Damage the player. Will cause death of HP is reduced below 0.
     /// </summary>
     /// <param name="n">Amount of damage inflicted.</param>
-    public void Damage(int n) 
+    public void Damage(int n)
     {
         if (canBeHit)
         {
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
             {
                 Kill();
             }
-        }        
+        }
     }
 
     /// <summary>
@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
     public void Kill()
     {
         //KILL
-        player.transform.position = respawnPoint.transform.position;
+        player.transform.position = respawn.transform.position;
         HP = maxHP;
     }
 
@@ -86,9 +86,13 @@ public class Player : MonoBehaviour
     /// <summary>
     /// Returns whether or not the player sprite is facing to the right.
     /// </summary>
-    public bool IsFacingRight() 
+    public bool IsFacingRight()
     {
         return facingRight;
     }
 
+    public void SetRespawnPoint(Respawn r) 
+    {
+        respawn = r;
+    }
 }

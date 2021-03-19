@@ -8,25 +8,12 @@ using System.Linq;
 
 public class Respawn : MonoBehaviour
 {
-    public bool isActive;
-    public Transform respawnPoint;
-
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        isActive = false;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
+        if (collision.tag == "Player")
         {
-            SetRespawnPoint();
+            collision.GetComponent<Player>().SetRespawnPoint(this);
         }
     }
 
-    void SetRespawnPoint()
-    {
-        isActive = true;
-        transform.position = respawnPoint.position;
-    }
 }
