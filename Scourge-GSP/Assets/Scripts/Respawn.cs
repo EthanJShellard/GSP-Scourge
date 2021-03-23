@@ -13,6 +13,8 @@ public class Respawn : MonoBehaviour
         if (collision.tag == "Player")
         {
             collision.GetComponent<Player>().SetRespawnPoint(this);
+            //Activate censer animation
+            GetComponent<Animator>().SetBool("On", true);
         }
     }
 

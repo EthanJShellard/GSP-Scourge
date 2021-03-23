@@ -7,6 +7,11 @@ public class MeleeHiTBox : MonoBehaviour
 
     [SerializeField] private int damageDealt;
 
+    public void SetDamage(int dam) 
+    {
+        damageDealt = dam;
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")

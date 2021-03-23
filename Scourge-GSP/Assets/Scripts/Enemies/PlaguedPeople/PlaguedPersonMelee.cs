@@ -37,8 +37,8 @@ public class PlaguedPersonMelee : Enemy
         animator = GetComponent<Animator>();
         bloodParticleSystem = GetComponentInChildren<ParticleSystem>();
         forceField = GetComponent<ParticleSystemForceField>();
-        spriteRenderer = GetComponent<SpriteRenderer>();    
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        GetComponentInChildren<MeleeHiTBox>().SetDamage(attackDamage);
     }
 
     private void FixedUpdate()

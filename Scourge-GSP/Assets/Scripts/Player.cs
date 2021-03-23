@@ -12,8 +12,7 @@ public class Player : MonoBehaviour
     bool facingRight = true;
     [SerializeField] int HP; //Only assigned to 5 for testing
 
-    [SerializeField] private Transform player;
-    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Vector3 defaultSpawnPoint;
     [SerializeField] private int maxHP;
 
     [SerializeField] private float iFramesTimer = 0.5f; //set to 0.5 for testing
@@ -68,7 +67,8 @@ public class Player : MonoBehaviour
     public void Kill()
     {
         //KILL
-        player.transform.position = respawn.transform.position;
+        if (respawn != null) transform.position = respawn.transform.position;
+        else transform.position = defaultSpawnPoint;
         HP = maxHP;
     }
 
@@ -93,6 +93,10 @@ public class Player : MonoBehaviour
 
     public void SetRespawnPoint(Respawn r) 
     {
+        //Deactive previous censer animation
+        if(respawn != null)respawn.GetComponent<Animator>().SetBool("On", false);
         respawn = r;
+        //Activate censer animation
+        r.GetComponent<Animator>().SetBool("On", true);
     }
 }

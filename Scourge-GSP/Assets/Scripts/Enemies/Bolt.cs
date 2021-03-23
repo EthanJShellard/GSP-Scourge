@@ -22,10 +22,14 @@ public class Bolt : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")) 
+        if (collision.CompareTag("Player"))
         {
             collision.GetComponent<Player>().Damage(damage);
             Destroy(this.gameObject); //Pooling would be better to use. Maybe switch to that
+        }
+        else if (!collision.CompareTag("Enemy"))
+        {
+            Destroy(this.gameObject);
         }
     }
 
