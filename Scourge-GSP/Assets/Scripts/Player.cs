@@ -11,9 +11,10 @@ public class Player : MonoBehaviour
 
     bool facingRight = true;
     [SerializeField] int HP; //Only assigned to 5 for testing
+    [SerializeField] private int maxHP;
 
     [SerializeField] private Vector3 defaultSpawnPoint;
-    [SerializeField] private int maxHP;
+    private LoadManager lm;
 
     [SerializeField] private float iFramesTimer = 0.5f; //set to 0.5 for testing
     [SerializeField] bool canBeHit = true;
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
     {
         iTimeLeft = iFramesTimer;
         HP = maxHP;
+        lm = FindObjectOfType<LoadManager>();
     }
 
     private void Update()
@@ -66,10 +68,8 @@ public class Player : MonoBehaviour
     /// </summary>
     public void Kill()
     {
-        //KILL
-        if (respawn != null) transform.position = respawn.transform.position;
-        else transform.position = defaultSpawnPoint;
-        HP = maxHP;
+        //reset to checkpoint
+        lm.ReloadToCheckpoint();
     }
 
     /// <summary>
@@ -96,7 +96,13 @@ public class Player : MonoBehaviour
         //Deactive previous censer animation
         if(respawn != null)respawn.GetComponent<Animator>().SetBool("On", false);
         respawn = r;
+
+        //Notify LoadManager
+        lm.SetRespawnPosition(r.transform.position);
+
         //Activate censer animation
         r.GetComponent<Animator>().SetBool("On", true);
+
+
     }
 }
