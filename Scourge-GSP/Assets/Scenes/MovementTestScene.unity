@@ -8676,7 +8676,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.31
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8719,7 +8719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1721094690}
-  size: 5
+  size: 6
   offset: {x: 0, y: 2, z: -10}
 --- !u!1 &1317907788
 GameObject:
@@ -9179,7 +9179,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.029271305, y: -0.10054019}
+  m_Offset: {x: -0.029271305, y: -0.06497589}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -9190,7 +9190,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.34585202, y: 0.77346617}
+  m_Size: {x: 0.34585202, y: 0.70233756}
   m_EdgeRadius: 0
 --- !u!1001 &1832440454
 PrefabInstance:
