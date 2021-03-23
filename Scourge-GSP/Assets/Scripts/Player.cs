@@ -29,11 +29,6 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Z))
-        {
-            Kill();
-        }
-
         if (iTimeLeft <= 0)
         {
             canBeHit = true;
@@ -44,6 +39,11 @@ public class Player : MonoBehaviour
             canBeHit = false;
         }
 
+    }
+
+    public void HealFull() 
+    {
+        HP = maxHP;
     }
 
     /// <summary>
