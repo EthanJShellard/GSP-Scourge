@@ -72,21 +72,29 @@ public class LoadManager : MonoBehaviour
     IEnumerator FadeInDeathScreen() 
     {
         float timer = 0f;
-        float accumulator = fadeInTime / 255;
+        float timeAccumulator = 0.05f / fadeInTime;
+        float colourAccumulator = 0.01f;
         Color c;
 
         while(timer < fadeInTime)
         {
-            c = blackoutSquare.color;
-            c.a += accumulator;
-            blackoutSquare.color = c;
+            if (blackoutSquare.color.a <= 1f) 
+            {
+                c = blackoutSquare.color;
+                c.a += colourAccumulator;
+                blackoutSquare.color = c;
+            }
 
-            c = deathText.color;
-            c.a += accumulator;
-            deathText.color = c;
+            if (deathText.color.a <= 1f) 
+            {
+                c = deathText.color;
+                c.a += colourAccumulator;
+                deathText.color = c;
+            }
+            
 
-            timer += accumulator;
-            yield return new WaitForSecondsRealtime(accumulator);
+            timer += timeAccumulator;
+            yield return new WaitForSecondsRealtime(timeAccumulator);
         }
 
         ReloadScene();
@@ -108,6 +116,5 @@ public class LoadManager : MonoBehaviour
             yield return new WaitForSecondsRealtime(accumulator);
         }
         blackoutSquare.color = Color.clear;
-        Debug.Log("Done");
     }
 }
