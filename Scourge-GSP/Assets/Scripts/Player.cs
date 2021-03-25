@@ -16,21 +16,30 @@ public class Player : MonoBehaviour
     [SerializeField] private Vector3 defaultSpawnPoint;
     private LoadManager lm;
 
-    [SerializeField] private float iFramesTimer = 0.5f; //set to 0.5 for testing
-    [SerializeField] bool canBeHit = true;
+    [SerializeField] private float iFramesTimer = 1.0f; //set to 0.5 for testing
+    [SerializeField] private bool canBeHit = true;
+    [SerializeField] private float flashInterval = .15f;
     private float iTimeLeft;
+
+    private Material mat;
+    private Color[] colors = new Color[2];
+    
 
     private void Start()
     {
         iTimeLeft = iFramesTimer;
         HP = maxHP;
         lm = FindObjectOfType<LoadManager>();
+        mat = GetComponent<SpriteRenderer>().material;
+        colors[0] = mat.color;
+        colors[1] = Color.red;
     }
 
     private void Update()
     {
         if (iTimeLeft <= 0)
         {
+            mat.color = colors[0];
             canBeHit = true;
         }
         else
@@ -39,6 +48,22 @@ public class Player : MonoBehaviour
             canBeHit = false;
         }
 
+    }
+
+    IEnumerator PlayerFlash(float time, float intervalTime)
+    {
+
+        float elapsedTime = .0f;
+        int index = 0;
+
+        while (elapsedTime < time)
+        {
+            mat.color = colors[index % 2];
+            elapsedTime += intervalTime;
+            Debug.Log("elapsed: " + elapsedTime + "time: " + time);
+            index++;
+            yield return new WaitForSeconds(intervalTime);
+        }
     }
 
     public void HealFull() 
@@ -60,6 +85,7 @@ public class Player : MonoBehaviour
             {
                 Kill();
             }
+            StartCoroutine(PlayerFlash(iFramesTimer, flashInterval));
         }
     }
 

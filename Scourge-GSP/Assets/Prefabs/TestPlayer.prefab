@@ -266,7 +266,7 @@ MonoBehaviour:
   HP: 0
   maxHP: 5
   defaultSpawnPoint: {x: 0, y: 0, z: 0}
-  iFramesTimer: 0.5
+  iFramesTimer: 1
   canBeHit: 1
 --- !u!95 &5954931576590902635
 Animator:
