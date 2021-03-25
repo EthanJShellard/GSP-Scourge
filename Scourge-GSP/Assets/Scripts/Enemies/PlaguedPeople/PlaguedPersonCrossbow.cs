@@ -58,7 +58,6 @@ public class PlaguedPersonCrossbow : Enemy
                 GameObject cb = Instantiate(crossbowBolt);
                 cb.transform.position = transform.position;
                 cb.GetComponent<Bolt>().SetDirection(diff.x > 0);
-
             }
         }
     }
