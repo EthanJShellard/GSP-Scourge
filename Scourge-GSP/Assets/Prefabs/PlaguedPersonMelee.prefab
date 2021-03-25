@@ -60,6 +60,7 @@ MonoBehaviour:
     m_Bits: 256
   desiredRange: 1
   bloodForce: 50
+  stunTime: 1
   hb: {fileID: 7203513299981498745}
 --- !u!61 &896661534554833129
 BoxCollider2D:
@@ -154,7 +155,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: bad51091d5689754e937eeed50ee2774, type: 2}
+  m_Material: {fileID: 6200000, guid: db9574e6981516441a9cca73e2dfa2fb, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0

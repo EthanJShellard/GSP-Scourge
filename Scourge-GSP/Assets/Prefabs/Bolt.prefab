@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   speed: 8
+  knockbackForce: 50
 --- !u!50 &2562274533877361831
 Rigidbody2D:
   serializedVersion: 4
