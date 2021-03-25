@@ -6,6 +6,7 @@ public class Bolt : MonoBehaviour
 {
     [SerializeField] int damage;
     [SerializeField] float speed;
+    [SerializeField] float knockbackForce;
 
     public void SetDirection(bool goRight) 
     {
@@ -25,6 +26,9 @@ public class Bolt : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<Player>().Damage(damage);
+
+            collision.GetComponent<Rigidbody2D>().AddForce(new Vector2(-50f, 2f), ForceMode2D.Impulse);
+
             Destroy(this.gameObject); //Pooling would be better to use. Maybe switch to that
         }
         else if (!collision.CompareTag("Enemy"))
