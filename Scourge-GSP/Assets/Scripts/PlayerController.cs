@@ -33,9 +33,10 @@ public class PlayerController : MonoBehaviour
     {
         //jump controls
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
-        
+
         if (grounded == true && Input.GetKeyDown(KeyCode.Space))
         {
+            animator.SetBool("Jumping", true);
             isJumping = true;
             jumpTimeCounter = jumpTime;
             rb.velocity = Vector2.up * jumpForce;
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
+            animator.SetBool("Jumping", false);
             isJumping = false;
         }
         //end jump controls
