@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class containing core player attributes such as HP.
@@ -11,7 +12,7 @@ public class Player : MonoBehaviour
 
     bool facingRight = true;
     [SerializeField] int HP; //Only assigned to 5 for testing
-    [SerializeField] private int maxHP;
+    [SerializeField] int maxHP;
 
     [SerializeField] private Vector3 defaultSpawnPoint;
     private LoadManager lm;
@@ -23,6 +24,8 @@ public class Player : MonoBehaviour
 
     private Material mat;
     private Color[] colors = new Color[2];
+
+    public Slider healthBar;
     
 
     private void Start()
@@ -33,6 +36,10 @@ public class Player : MonoBehaviour
         mat = GetComponent<SpriteRenderer>().material;
         colors[0] = mat.color;
         colors[1] = Color.red;
+
+        healthBar = GetComponent<Slider>();
+        healthBar.maxValue = maxHP;
+        healthBar.value = HP;
     }
 
     private void Update()
@@ -86,6 +93,8 @@ public class Player : MonoBehaviour
                 Kill();
             }
             StartCoroutine(PlayerFlash(iFramesTimer, flashInterval));
+
+            healthBar.value = HP;
         }
     }
 
