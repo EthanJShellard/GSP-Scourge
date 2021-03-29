@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// Class containing core player attributes such as HP.
@@ -24,8 +23,7 @@ public class Player : MonoBehaviour
 
     private Material mat;
     private Color[] colors = new Color[2];
-
-    public Slider healthBar;
+    private HealthBar healthBar;
     
 
     private void Start()
@@ -37,9 +35,9 @@ public class Player : MonoBehaviour
         colors[0] = mat.color;
         colors[1] = Color.red;
 
-        healthBar = GetComponent<Slider>();
-        healthBar.maxValue = maxHP;
-        healthBar.value = HP;
+        healthBar = FindObjectOfType<HealthBar>();
+        healthBar.SetMaxValue(maxHP);
+        healthBar.SetValue(HP);
     }
 
     private void Update()
@@ -76,6 +74,8 @@ public class Player : MonoBehaviour
     public void HealFull() 
     {
         HP = maxHP;
+        //Update health bar
+        healthBar.SetValue(HP);
     }
 
     /// <summary>
@@ -94,7 +94,8 @@ public class Player : MonoBehaviour
             }
             StartCoroutine(PlayerFlash(iFramesTimer, flashInterval));
 
-            healthBar.value = HP;
+            //Update healthbar
+            healthBar.SetValue(HP);
         }
     }
 
