@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour
 {
 
-    [SerializeField] private float damage = 2;
+    [SerializeField] private int damage = 2;
     [SerializeField] private float bulletLifetime = 1;
 
     private float lifeTimeLeft;
@@ -31,7 +31,11 @@ public class ProjectileController : MonoBehaviour
     {
         if (col.CompareTag("Enemy"))
         {
-            col.gameObject.GetComponent<Enemy>().Damage(2, GetComponent<Rigidbody2D>().velocity);
+            col.gameObject.GetComponent<Enemy>().Damage((int)damage, GetComponent<Rigidbody2D>().velocity);
+        }
+        else if (col.CompareTag("Boss"))
+        {
+            col.gameObject.GetComponent<BossController>().Damage((int)damage);
         }
         else if (col.isTrigger) 
         {

@@ -11,17 +11,16 @@ public class BossController : MonoBehaviour
         Mellee,
     }
 
-    [Header("Movement Controls")]
+    [Header("General Controls")]
+    [SerializeField] private float health = 30.0f;
     [SerializeField] private float moveSpeed = 5.0f;
-    [SerializeField] private float jumpForce = 5.0f;
+    [SerializeField] private GameObject arm;
+    [SerializeField] private LayerMask playerLayer;
     [Header("Attack Controls")]
-    [SerializeField] private float melleeDamage = 2.0f;
     [SerializeField] private float melleeRange = 1.0f;
-    [SerializeField] private float rangedDamage = 1.0f;
     [SerializeField] private float shootRange = 10.0f;
     [SerializeField] private float shotSpeed = 5.0f;
     [SerializeField] private float shotSpreadAngle = 45.0f;
-    [SerializeField] private float shotCooldownTimer = .5f;
     [SerializeField] private float attackTimer = 1.0f;
     [Header("")]
     [SerializeField] private GameObject bullet;
@@ -29,7 +28,6 @@ public class BossController : MonoBehaviour
     private float attackTime = .0f;
 
     private Attack currentAttack;
-    private bool currentlyAttacking = false;
 
     private GameObject player;
     private bool facingRight = true;
@@ -37,10 +35,14 @@ public class BossController : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        arm.SetActive(false);
     }
 
     private void Update()
     {
+        if (health <= 0)
+            Destroy(this.gameObject);
+
         if (player.transform.position.x < gameObject.transform.position.x && facingRight)
         {
             Flip();
@@ -140,7 +142,22 @@ public class BossController : MonoBehaviour
 
     void MelleeAttack()
     {
+        if (Mathf.Abs(transform.position.x - player.transform.position.x) < melleeRange)
+        {
+            StartCoroutine(punch());
+        }
+    }
 
+    IEnumerator punch()
+    {
+        arm.SetActive(true);
+        yield return new WaitForSeconds(.5f);
+        arm.SetActive(false);
+    }
+
+    public void Damage(int damage)
+    {
+        health -= damage;
     }
 
     Attack getRandomAttack()
