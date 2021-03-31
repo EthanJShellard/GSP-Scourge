@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 5954931576590902634}
   - component: {fileID: 5954931576590902635}
   m_Layer: 8
-  m_Name: TestPlayer
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -4039319569667228136, guid: 76da4f271da0b6c48b4933f732804462,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -268,6 +268,7 @@ MonoBehaviour:
   defaultSpawnPoint: {x: 0, y: 0, z: 0}
   iFramesTimer: 1
   canBeHit: 1
+  flashInterval: 0.15
 --- !u!95 &5954931576590902635
 Animator:
   serializedVersion: 3
