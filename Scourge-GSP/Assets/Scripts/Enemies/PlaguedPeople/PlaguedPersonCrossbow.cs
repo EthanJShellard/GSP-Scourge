@@ -83,10 +83,10 @@ public class PlaguedPersonCrossbow : Enemy
             animator.SetBool("Walking", true);
             if (patrolDir) //Going right
             {
+                sprite.flipX = true;
                 if (transform.position.x > rightBoundX) 
                 {
                     patrolDir = !patrolDir;
-                    sprite.flipX = false;
                 }
 
                 Vector3 vel = rb.velocity;
@@ -95,10 +95,11 @@ public class PlaguedPersonCrossbow : Enemy
             }
             else //Going left
             {
+                sprite.flipX = false;
                 if (transform.position.x < leftBoundX) 
                 {
                     patrolDir = !patrolDir;
-                    sprite.flipX = true;
+                    
                 }
 
                 Vector3 vel = rb.velocity;
