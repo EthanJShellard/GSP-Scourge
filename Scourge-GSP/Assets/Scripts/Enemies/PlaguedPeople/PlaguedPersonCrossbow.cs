@@ -23,6 +23,10 @@ public class PlaguedPersonCrossbow : Enemy
     bool doPatrol;
     bool patrolDir = true;
     Rigidbody2D rb;
+#if UNITY_EDITOR
+    bool gameRunning;
+#endif
+
 
     float attackTimer;
     bool attackReady;
@@ -31,6 +35,10 @@ public class PlaguedPersonCrossbow : Enemy
 
     private void Start()
     {
+#if UNITY_EDITOR
+        gameRunning = true;
+#endif
+
         attackReady = false;
         attackTimer = attackCooldown;
         sprite = GetComponent<SpriteRenderer>();
@@ -139,8 +147,11 @@ public class PlaguedPersonCrossbow : Enemy
 
     private void OnDrawGizmos()
     {
-        rightBoundX = transform.position.x + rightPatrolDistance;
-        leftBoundX = transform.position.x - leftPatrolDistance;
+        if (!gameRunning)
+        {
+            rightBoundX = transform.position.x + rightPatrolDistance;
+            leftBoundX = transform.position.x - leftPatrolDistance;
+        }
     }
 
     [DrawGizmo(GizmoType.Selected)]
