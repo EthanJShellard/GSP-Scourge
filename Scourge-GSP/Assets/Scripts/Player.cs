@@ -29,15 +29,19 @@ public class Player : MonoBehaviour
     private void Start()
     {
         iTimeLeft = iFramesTimer;
+
         HP = maxHP;
+        healthBar = FindObjectOfType<HealthBar>();
+        healthBar.SetMaxValue(maxHP);
+        healthBar.SetValue(HP);
+        HealFull();
+
         lm = FindObjectOfType<LoadManager>();
         mat = GetComponent<SpriteRenderer>().material;
         colors[0] = mat.color;
         colors[1] = Color.red;
 
-        healthBar = FindObjectOfType<HealthBar>();
-        healthBar.SetMaxValue(maxHP);
-        healthBar.SetValue(HP);
+        
     }
 
     private void Update()

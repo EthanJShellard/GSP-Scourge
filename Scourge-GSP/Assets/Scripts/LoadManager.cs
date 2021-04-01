@@ -39,7 +39,6 @@ public class LoadManager : MonoBehaviour
         {
             Player p = FindObjectOfType<Player>();
             p.transform.position = respawnPosition;
-            p.HealFull();
         }
     }
 

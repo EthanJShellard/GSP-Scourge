@@ -157,6 +157,8 @@ public class PlaguedPersonCrossbow : Enemy
     [DrawGizmo(GizmoType.Selected)]
     static void DrawBounds(PlaguedPersonCrossbow ppc, GizmoType gt)
     {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(ppc.transform.position, ppc.aggroRange);
         Gizmos.color = Color.red;
         Gizmos.DrawLine(ppc.transform.position, new Vector3(ppc.leftBoundX, ppc.transform.position.y, ppc.transform.position.z));
         Gizmos.DrawLine(ppc.transform.position, new Vector3(ppc.rightBoundX, ppc.transform.position.y, ppc.transform.position.z));

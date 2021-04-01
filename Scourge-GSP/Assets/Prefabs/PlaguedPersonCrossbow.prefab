@@ -5396,4 +5396,4 @@ MonoBehaviour:
     type: 3}
   leftPatrolDistance: 0
   rightPatrolDistance: 0
-  walkSpeed: 1
+  walkSpeed: 1.5
