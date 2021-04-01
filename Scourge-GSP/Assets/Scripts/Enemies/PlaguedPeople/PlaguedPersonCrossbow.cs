@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.SceneManagement;
+#endif
+
 public class PlaguedPersonCrossbow : Enemy
 {
     [SerializeField] private float aggroRange;
@@ -9,6 +14,15 @@ public class PlaguedPersonCrossbow : Enemy
     [SerializeField] private float attackCooldown; //Time between attacks
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private GameObject crossbowBolt;
+    [SerializeField] private float leftPatrolDistance;
+    [SerializeField] private float rightPatrolDistance;
+    [SerializeField] private float walkSpeed;
+
+    float rightBoundX;
+    float leftBoundX;
+    bool doPatrol;
+    bool patrolDir = true;
+    Rigidbody2D rb;
 
     float attackTimer;
     bool attackReady;
@@ -21,6 +35,11 @@ public class PlaguedPersonCrossbow : Enemy
         attackTimer = attackCooldown;
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+
+        doPatrol = ((leftPatrolDistance != 0) || (rightPatrolDistance != 0));
+        rightBoundX = transform.position.x + rightPatrolDistance;
+        leftBoundX = transform.position.x - leftPatrolDistance;
     }
 
     private void Update()
@@ -40,13 +59,12 @@ public class PlaguedPersonCrossbow : Enemy
     private void FixedUpdate()
     {
         Collider2D[] player = Physics2D.OverlapCircleAll(transform.position, aggroRange, playerLayer);
-        if (player.Length > 0) 
+        if (player.Length > 0)
         {
             Vector3 diff = player[0].transform.position - transform.position;
-
+            animator.SetBool("Walking", false);
             //Face player
-            if (diff.x > 0) sprite.flipX = true;
-            else sprite.flipX = false;
+            sprite.flipX = (diff.x > 0);
 
             if (attackReady)
             {
@@ -59,6 +77,35 @@ public class PlaguedPersonCrossbow : Enemy
                 cb.transform.position = transform.position;
                 cb.GetComponent<Bolt>().SetDirection(diff.x > 0);
             }
+        }
+        else if (doPatrol) //Patrol
+        {
+            animator.SetBool("Walking", true);
+            if (patrolDir) //Going right
+            {
+                if (transform.position.x > rightBoundX) 
+                {
+                    patrolDir = !patrolDir;
+                    sprite.flipX = false;
+                }
+
+                Vector3 vel = rb.velocity;
+                vel.x = walkSpeed;
+                rb.velocity = vel;
+            }
+            else //Going left
+            {
+                if (transform.position.x < leftBoundX) 
+                {
+                    patrolDir = !patrolDir;
+                    sprite.flipX = true;
+                }
+
+                Vector3 vel = rb.velocity;
+                vel.x = -walkSpeed;
+                rb.velocity = vel;
+            }
+        
         }
     }
 
@@ -83,4 +130,24 @@ public class PlaguedPersonCrossbow : Enemy
 
         animator.SetBool("Attack", false);
     }
+
+
+
+
+#if UNITY_EDITOR
+
+    private void OnDrawGizmos()
+    {
+        rightBoundX = transform.position.x + rightPatrolDistance;
+        leftBoundX = transform.position.x - leftPatrolDistance;
+    }
+
+    [DrawGizmo(GizmoType.Selected)]
+    static void DrawBounds(PlaguedPersonCrossbow ppc, GizmoType gt)
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(ppc.transform.position, new Vector3(ppc.leftBoundX, ppc.transform.position.y, ppc.transform.position.z));
+        Gizmos.DrawLine(ppc.transform.position, new Vector3(ppc.rightBoundX, ppc.transform.position.y, ppc.transform.position.z));
+    }
+#endif
 }
