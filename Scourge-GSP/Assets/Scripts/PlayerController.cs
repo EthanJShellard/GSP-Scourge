@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private float speed;
+    [SerializeField] private float AttackSlowdownFactor;
     [SerializeField] private float jumpForce;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask whatIsGround;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private bool grounded = false;
     private float jumpTimeCounter;
     private bool isJumping;
+    private float attackSlowdown;
 
     const float groundedRadius = .2f;
     private Player player;
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
         player = GetComponent<Player>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        attackSlowdown = 1f;
     }
 
     void Update()
@@ -67,7 +70,7 @@ public class PlayerController : MonoBehaviour
     {
         //horizontal movement
         horizontalInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+        rb.velocity = new Vector2(horizontalInput * speed * attackSlowdown, rb.velocity.y);
 
         if (horizontalInput != 0)
         {
@@ -90,4 +93,15 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void SetAttacking(bool attacking) 
+    {
+        if (attacking)
+        {
+            attackSlowdown = AttackSlowdownFactor;
+        }
+        else 
+        {
+            attackSlowdown = 1f;
+        }
+    }
 }

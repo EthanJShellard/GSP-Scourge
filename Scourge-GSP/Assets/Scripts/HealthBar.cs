@@ -8,9 +8,9 @@ public class HealthBar : MonoBehaviour
     //Using slider for this implementation
     private Slider slider;
 
-    private void Start()
+    private void Awake()
     {
-        slider = GetComponent<Slider>();
+        slider = GetComponentInParent<Slider>();
     }
 
     public void SetMaxValue(int max) 

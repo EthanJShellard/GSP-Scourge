@@ -12,11 +12,13 @@ public class PlayerAttackStick : MonoBehaviour
     [SerializeField] float attackRange;
     [SerializeField] int damage;
 
+    private PlayerController pc;
     private Animator anim;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        pc = GetComponent<PlayerController>();
     }
 
     void Update()
@@ -26,6 +28,7 @@ public class PlayerAttackStick : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 anim.SetBool("Attacking", true);
+                pc.SetAttacking(true);
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, enemies);
                 for(int i = 0; i < enemiesToDamage.Length; i++)
                 {
@@ -39,6 +42,10 @@ public class PlayerAttackStick : MonoBehaviour
                     }
                 }
                 timeAttack = startTimeAttack;
+            }
+            else 
+            {
+                pc.SetAttacking(false);
             }
         }
         else
