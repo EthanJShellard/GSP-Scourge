@@ -9,14 +9,25 @@ public class ProjectileController : MonoBehaviour
     [SerializeField] private float bulletLifetime = 1;
 
     private float lifeTimeLeft;
+    private Rigidbody2D rb2d;
+    private bool facingRight = false;
 
     private void Start()
     {
+        rb2d = GetComponent<Rigidbody2D>();
         lifeTimeLeft = bulletLifetime;
     }
 
     private void Update()
     {
+        if (rb2d.velocity.x > 0 && !facingRight)
+        {
+            Flip();
+        }else if (rb2d.velocity.x < 0 && facingRight)
+        {
+            Flip();
+        }
+
         if (lifeTimeLeft <= .0f)
         {
             Destroy(this.gameObject);
@@ -25,6 +36,14 @@ public class ProjectileController : MonoBehaviour
         {
             lifeTimeLeft -= Time.deltaTime;
         }
+    }
+
+    public void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
