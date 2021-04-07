@@ -69,7 +69,6 @@ public class Player : MonoBehaviour
         {
             mat.color = colors[index % 2];
             elapsedTime += intervalTime;
-            Debug.Log("elapsed: " + elapsedTime + "time: " + time);
             index++;
             yield return new WaitForSeconds(intervalTime);
         }
