@@ -55,7 +55,16 @@ public class PlayerShoot : MonoBehaviour
     private void FireProjectile()
     {
         GameObject firedProjectile = Instantiate(projectile, shootPoint.position, Quaternion.identity);
-        firedProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(lookDirection.x, lookDirection.y) * bulletSpeed;
+
+        Rigidbody2D rigBod = firedProjectile.GetComponent<Rigidbody2D>();
+
+        rigBod.velocity = new Vector2(lookDirection.x, lookDirection.y) * bulletSpeed;
+
+        if (rigBod.velocity.x < 0)
+        {
+            firedProjectile.GetComponent<SpriteRenderer>().flipX = true;
+        }
+
     }
 
 }

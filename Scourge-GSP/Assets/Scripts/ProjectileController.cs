@@ -20,14 +20,6 @@ public class ProjectileController : MonoBehaviour
 
     private void Update()
     {
-        if (rb2d.velocity.x > 0 && !facingRight)
-        {
-            Flip();
-        }else if (rb2d.velocity.x < 0 && facingRight)
-        {
-            Flip();
-        }
-
         if (lifeTimeLeft <= .0f)
         {
             Destroy(this.gameObject);
