@@ -7,14 +7,12 @@ public class BossArmController : MonoBehaviour
 
     [SerializeField] private int damage = 5;
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        if (col.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            col.gameObject.GetComponent<Player>().Damage(damage);
+            collision.gameObject.GetComponent<Player>().Damage(damage);
         }
-
     }
 
 }
