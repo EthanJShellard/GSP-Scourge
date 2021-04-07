@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private bool grounded = false;
     private float jumpTimeCounter;
     private bool isJumping;
+    private bool keyReleased;
     private float attackSlowdown;
 
     const float groundedRadius = .2f;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        keyReleased = true;
         player = GetComponent<Player>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -37,12 +39,13 @@ public class PlayerController : MonoBehaviour
         //jump controls
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
 
-        if (grounded == true && Input.GetKeyDown(KeyCode.Space))
+        if (grounded && Input.GetKeyDown(KeyCode.Space) && keyReleased)
         {
             animator.SetBool("Jumping", true);
             isJumping = true;
             jumpTimeCounter = jumpTime;
             rb.velocity = Vector2.up * jumpForce;
+            keyReleased = false;
         }
 
         if (Input.GetKey(KeyCode.Space) && isJumping)
@@ -55,12 +58,13 @@ public class PlayerController : MonoBehaviour
             else
             {
                 isJumping = false;
+                animator.SetBool("Jumping", false);
             }
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            animator.SetBool("Jumping", false);
             isJumping = false;
+            keyReleased = true;
         }
         //end jump controls
 
