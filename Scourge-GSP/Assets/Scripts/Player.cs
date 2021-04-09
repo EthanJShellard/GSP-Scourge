@@ -24,7 +24,12 @@ public class Player : MonoBehaviour
     private Material mat;
     private Color[] colors = new Color[2];
     private HealthBar healthBar;
+
+    private bool knockBackActive = false;
+    private Transform colliderPos;
     
+    public bool getKnockBackState() { return knockBackActive; }
+    public Transform getColliderTransform() { return colliderPos; }
 
     private void Start()
     {
@@ -72,6 +77,7 @@ public class Player : MonoBehaviour
             index++;
             yield return new WaitForSeconds(intervalTime);
         }
+        knockBackActive = false;
     }
 
     public void HealFull() 
@@ -89,6 +95,8 @@ public class Player : MonoBehaviour
     {
         if (canBeHit)
         {
+            knockBackActive = true;
+            
             iTimeLeft = iFramesTimer;
             HP -= n;
             if (HP <= 0)
@@ -96,7 +104,25 @@ public class Player : MonoBehaviour
                 Kill();
             }
             StartCoroutine(PlayerFlash(iFramesTimer, flashInterval));
+            //Update healthbar
+            healthBar.SetValue(HP);
+        }
+    }
 
+    public void Damage(int n, Transform colPos)
+    {
+        if (canBeHit)
+        {
+            knockBackActive = true;
+            colliderPos = colPos;
+
+            iTimeLeft = iFramesTimer;
+            HP -= n;
+            if (HP <= 0)
+            {
+                Kill();
+            }
+            StartCoroutine(PlayerFlash(iFramesTimer, flashInterval));
             //Update healthbar
             healthBar.SetValue(HP);
         }

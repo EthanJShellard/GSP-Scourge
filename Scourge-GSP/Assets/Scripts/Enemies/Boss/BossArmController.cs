@@ -11,7 +11,7 @@ public class BossArmController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Player>().Damage(damage);
+            collision.gameObject.GetComponent<Player>().Damage(damage, gameObject.transform);
         }
     }
 

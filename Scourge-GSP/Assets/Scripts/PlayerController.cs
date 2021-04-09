@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private float jumpTime;
+    [SerializeField] private float knockbackForce;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -24,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     const float groundedRadius = .2f;
     private Player player;
+
+    private bool knocked = false;
 
     void Start()
     {
@@ -72,28 +75,53 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //horizontal movement
-        horizontalInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(horizontalInput * speed * attackSlowdown, rb.velocity.y);
+        if (!player.getKnockBackState())
+        {
+            knocked = false;
+            //horizontal movement
+            horizontalInput = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(horizontalInput * speed * attackSlowdown, rb.velocity.y);
 
-        if (horizontalInput != 0)
-        {
-            animator.SetBool("Running", true);
-        }
-        else 
-        {
-            animator.SetBool("Running", false);
-        }
+            if (horizontalInput != 0)
+            {
+                animator.SetBool("Running", true);
+            }
+            else
+            {
+                animator.SetBool("Running", false);
+            }
 
-        if (horizontalInput > 0 && !player.IsFacingRight())
-        {
-            player.Flip();
+            if (horizontalInput > 0 && !player.IsFacingRight())
+            {
+                player.Flip();
+            }
+            else if (horizontalInput < 0 && player.IsFacingRight())
+            {
+                player.Flip();
+            }
+            //end horizontal movement
         }
-        else if (horizontalInput < 0 && player.IsFacingRight())
+        else
         {
-            player.Flip();
+            if (!knocked)
+            {
+                rb.velocity = new Vector2(.0f, .0f);
+
+                Debug.Log(player.getColliderTransform().position.x);
+
+                if (player.getColliderTransform().position.x > transform.position.x)
+                {
+                    rb.AddForce(transform.right * -knockbackForce * 5);
+                    rb.AddForce(transform.up * knockbackForce * 5);
+                }
+                else
+                {
+                    rb.AddForce(transform.right * knockbackForce * 5);
+                    rb.AddForce(transform.up * knockbackForce * 5);
+                }
+                knocked = true;
+            }
         }
-        //end horizontal movement
 
     }
 

@@ -634,7 +634,7 @@ SpriteRenderer:
   m_Size: {x: 2.36, y: 2.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &242603712
@@ -9216,7 +9216,7 @@ SpriteRenderer:
   m_Size: {x: 2.36, y: 2.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1177840030
@@ -9403,7 +9403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba4cf17ce30b854782aa645a66c76e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 1721094690}
   size: 6
   offset: {x: 0, y: 2, z: -10}
 --- !u!1 &1411036690
@@ -9607,12 +9606,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581522341}
   m_CullTransparentMesh: 0
---- !u!4 &1721094690 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5954931576590902624, guid: ef808a3e3cb12e3468203dbf312c97db,
-    type: 3}
-  m_PrefabInstance: {fileID: 5954931574953801538}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1832440454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10024,9 +10017,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5954931576590902628, guid: ef808a3e3cb12e3468203dbf312c97db,
         type: 3}
+      propertyPath: bulletSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954931576590902628, guid: ef808a3e3cb12e3468203dbf312c97db,
+        type: 3}
       propertyPath: shootImage1
       value: 
       objectReference: {fileID: 1295706845}
+    - target: {fileID: 5954931576590902631, guid: ef808a3e3cb12e3468203dbf312c97db,
+        type: 3}
+      propertyPath: knockbackForce
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5954931576590902634, guid: ef808a3e3cb12e3468203dbf312c97db,
         type: 3}
       propertyPath: healthBar
