@@ -2354,6 +2354,11 @@ PrefabInstance:
       propertyPath: shootImage1
       value: 
       objectReference: {fileID: 631591805}
+    - target: {fileID: 5954931576590902631, guid: ef808a3e3cb12e3468203dbf312c97db,
+        type: 3}
+      propertyPath: knockbackForce
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef808a3e3cb12e3468203dbf312c97db, type: 3}
 --- !u!1001 &847359367
