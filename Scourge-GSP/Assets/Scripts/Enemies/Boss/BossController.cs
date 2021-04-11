@@ -16,6 +16,7 @@ public class BossController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5.0f;
     [SerializeField] private GameObject arm;
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private float viewDistance = 10.0f;
     [Header("Attack Controls")]
     [SerializeField] private float melleeRange = 1.0f;
     [SerializeField] private float shootRange = 10.0f;
@@ -51,40 +52,47 @@ public class BossController : MonoBehaviour
             Flip();
         }
 
-        if (attackTime <= .0f)
+        if (Mathf.Abs(transform.position.x - player.transform.position.x) < viewDistance)
         {
-            currentAttack = getRandomAttack();
-            switch (currentAttack)
+            if (attackTime <= .0f)
             {
-                case Attack.Mellee:
-                    Debug.Log("Mellee");
-                    MelleeAttack();
-                    break;
-                case Attack.SingleShot:
-                    Debug.Log("Single Shot");
-                    ShootSingleShot();
-                    break;
-                case Attack.ShotGun:
-                    Debug.Log("Shotgun shot");
-                    ShootShotgunShot();
-                    break;
+                currentAttack = getRandomAttack();
+                switch (currentAttack)
+                {
+                    case Attack.Mellee:
+                        Debug.Log("Mellee");
+                        MelleeAttack();
+                        break;
+                    case Attack.SingleShot:
+                        Debug.Log("Single Shot");
+                        ShootSingleShot();
+                        break;
+                    case Attack.ShotGun:
+                        Debug.Log("Shotgun shot");
+                        ShootShotgunShot();
+                        break;
+                }
+                attackTime = attackTimer;
             }
-            attackTime = attackTimer;
-        }else
-        {
-            attackTime -= Time.deltaTime;
+            else
+            {
+                attackTime -= Time.deltaTime;
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        if (player.transform.position.x < gameObject.transform.position.x - melleeRange)
+        if (Mathf.Abs(transform.position.x - player.transform.position.x) < viewDistance)
         {
-            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-        }
-        if (player.transform.position.x > gameObject.transform.position.x + melleeRange)
-        {
-            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            if (player.transform.position.x < gameObject.transform.position.x - melleeRange)
+            {
+                transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            }
+            if (player.transform.position.x > gameObject.transform.position.x + melleeRange)
+            {
+                transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            }
         }
     }
 

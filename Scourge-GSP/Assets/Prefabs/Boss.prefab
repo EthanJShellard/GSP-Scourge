@@ -103,6 +103,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
+  viewDistance: 15
   melleeRange: 3
   shootRange: 10
   shotSpeed: 10
