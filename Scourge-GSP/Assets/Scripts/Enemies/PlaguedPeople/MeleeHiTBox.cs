@@ -17,7 +17,7 @@ public class MeleeHiTBox : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             Player p = col.gameObject.GetComponent<Player>();
-            p.Damage(damageDealt, gameObject.transform);
+            p.Damage(damageDealt, gameObject.transform.position);
         }
     }
 }

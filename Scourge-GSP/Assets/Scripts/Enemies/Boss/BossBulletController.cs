@@ -31,7 +31,7 @@ public class BossBulletController : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            col.gameObject.GetComponent<Player>().Damage((int)damage, gameObject.transform);
+            col.gameObject.GetComponent<Player>().Damage((int)damage, gameObject.transform.position);
         }
         else if (col.isTrigger)
         {
