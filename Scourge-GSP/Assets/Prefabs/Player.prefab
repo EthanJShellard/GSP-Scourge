@@ -163,6 +163,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   jumpTime: 0.35
+  knockbackForce: 50
 --- !u!114 &5954931576590902628
 MonoBehaviour:
   m_ObjectHideFlags: 0

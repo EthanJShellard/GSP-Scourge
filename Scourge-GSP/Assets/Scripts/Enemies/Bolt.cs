@@ -25,7 +25,7 @@ public class Bolt : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Player>().Damage(damage, gameObject.transform);
+            collision.GetComponent<Player>().Damage(damage, gameObject.transform.position);
 
             collision.GetComponent<Rigidbody2D>().AddForce(new Vector2(-50f, 2f), ForceMode2D.Impulse);
 

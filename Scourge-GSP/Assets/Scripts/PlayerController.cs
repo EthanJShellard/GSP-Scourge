@@ -111,9 +111,9 @@ public class PlayerController : MonoBehaviour
             {
                 rb.velocity = new Vector2(.0f, .0f);
 
-                Debug.Log(player.getColliderTransform().position.x);
+                Debug.Log(player.getColliderTransform().x);
 
-                if (player.getColliderTransform().position.x > transform.position.x)
+                if (player.getColliderTransform().x > transform.position.x)
                 {
                     rb.AddForce(transform.right * -knockbackForce * 5);
                     rb.AddForce(transform.up * knockbackForce * 5);

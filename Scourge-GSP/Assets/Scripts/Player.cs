@@ -26,10 +26,10 @@ public class Player : MonoBehaviour
     private HealthBar healthBar;
 
     private bool knockBackActive = false;
-    private Transform colliderPos;
+    private Vector3 colliderPos;
     
     public bool getKnockBackState() { return knockBackActive; }
-    public Transform getColliderTransform() { return colliderPos; }
+    public Vector3 getColliderTransform() { return colliderPos; }
 
     private void Start()
     {
@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Damage(int n, Transform colPos)
+    public void Damage(int n, Vector3 colPos)
     {
         if (canBeHit)
         {
