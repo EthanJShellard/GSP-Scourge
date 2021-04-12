@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool isJumping;
     private bool keyReleased;
     private float attackSlowdown;
+    private bool isShooting = false;
 
     const float groundedRadius = .2f;
     private Player player;
@@ -77,29 +78,32 @@ public class PlayerController : MonoBehaviour
     {
         if (!player.getKnockBackState())
         {
-            knocked = false;
-            //horizontal movement
-            horizontalInput = Input.GetAxis("Horizontal");
-            rb.velocity = new Vector2(horizontalInput * speed * attackSlowdown, rb.velocity.y);
+            if (!isShooting) 
+            {
+                knocked = false;
+                //horizontal movement
+                horizontalInput = Input.GetAxis("Horizontal");
+                rb.velocity = new Vector2(horizontalInput * speed * attackSlowdown, rb.velocity.y);
 
-            if (horizontalInput != 0)
-            {
-                animator.SetBool("Running", true);
-            }
-            else
-            {
-                animator.SetBool("Running", false);
-            }
+                if (horizontalInput != 0)
+                {
+                    animator.SetBool("Running", true);
+                }
+                else
+                {
+                    animator.SetBool("Running", false);
+                }
 
-            if (horizontalInput > 0 && !player.IsFacingRight())
-            {
-                player.Flip();
+                if (horizontalInput > 0 && !player.IsFacingRight())
+                {
+                    player.Flip();
+                }
+                else if (horizontalInput < 0 && player.IsFacingRight())
+                {
+                    player.Flip();
+                }
+                //end horizontal movement
             }
-            else if (horizontalInput < 0 && player.IsFacingRight())
-            {
-                player.Flip();
-            }
-            //end horizontal movement
         }
         else
         {
@@ -135,5 +139,11 @@ public class PlayerController : MonoBehaviour
         {
             attackSlowdown = 1f;
         }
+    }
+
+    public void SetShooting(bool shooting) 
+    {
+        isShooting = shooting;
+        if (isShooting) animator.SetBool("Running", false);
     }
 }

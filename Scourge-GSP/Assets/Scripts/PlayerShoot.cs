@@ -17,11 +17,13 @@ public class PlayerShoot : MonoBehaviour
     private float currentTime = 0.0f;
     private Vector2 lookDirection;
     private Player player;
+    private PlayerController playerController;
 
     private void Start()
     {
         shootImage1.fillAmount = 0;
         player = GetComponent<Player>();
+        playerController = GetComponent<PlayerController>();
     }
 
     private void Update()
@@ -37,6 +39,8 @@ public class PlayerShoot : MonoBehaviour
                 FireProjectile();
                 shootImage1.fillAmount = 1;
                 currentTime = AttackTimer;
+
+                playerController.SetShooting(true);
             }
         }
         else
@@ -48,7 +52,10 @@ public class PlayerShoot : MonoBehaviour
             {
                 shootImage1.fillAmount = 0;
             }
-
+            else if (shootImage1.fillAmount <= 0.75) 
+            {
+                playerController.SetShooting(false);
+            }
         }
     }
 
