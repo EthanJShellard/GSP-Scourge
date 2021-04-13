@@ -10,6 +10,7 @@ public class CameraFollow : MonoBehaviour
     Transform playerTransform;
     [SerializeField] float size;
     [SerializeField] Vector3 offset;
+    [SerializeField] float lerpFactor; //Increase to make camera follow more closely/quickly
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +24,11 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = playerTransform.position;
-        transform.Translate(offset);
+        Vector3 targetPos = playerTransform.position + offset;
+        transform.position = Vector3.Lerp(transform.position, targetPos, lerpFactor);
+
+        //transform.position = playerTransform.position;
+        //transform.Translate(offset);
     }
 
     //Assigns values when the component is first added or when reset selected in the editor
@@ -32,5 +36,6 @@ public class CameraFollow : MonoBehaviour
     {
         size = 5;
         offset.Set(0,2,-10);
+        lerpFactor = 0.02f;
     }
 }
