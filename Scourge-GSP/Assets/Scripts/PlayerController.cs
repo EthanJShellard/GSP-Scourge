@@ -50,7 +50,11 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("Jumping", true);
                 isJumping = true;
                 jumpTimeCounter = jumpTime;
-                rb.velocity = Vector2.up * jumpForce;
+
+                Vector2 vel = rb.velocity;
+                vel.y = jumpForce;
+                rb.velocity = vel;
+
                 keyReleased = false;
             }
             else if (!isJumping)
@@ -62,8 +66,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && isJumping)
         {
             if (jumpTimeCounter > 0)
-            {   
-                rb.velocity = Vector2.up * jumpForce;
+            {
+                Vector2 vel = rb.velocity;
+                vel.y = jumpForce;
+                rb.velocity = vel;
+
                 jumpTimeCounter -= Time.deltaTime;
             }
             else
