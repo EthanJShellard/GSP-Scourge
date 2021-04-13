@@ -51,7 +51,7 @@ public class LoadManager : MonoBehaviour
     public void ReloadToCheckpoint() 
     {
         StartCoroutine(FadeInDeathScreen());
-        Time.timeScale = 0;
+        Time.timeScale = 1;
     }
 
     private void ReloadScene() 

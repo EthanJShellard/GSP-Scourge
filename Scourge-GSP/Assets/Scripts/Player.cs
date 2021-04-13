@@ -27,12 +27,15 @@ public class Player : MonoBehaviour
 
     private bool knockBackActive = false;
     private Vector3 colliderPos;
-    
+
+    private Animator anim;
+
     public bool getKnockBackState() { return knockBackActive; }
     public Vector3 getColliderTransform() { return colliderPos; }
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         iTimeLeft = iFramesTimer;
 
         HP = maxHP;
@@ -61,7 +64,6 @@ public class Player : MonoBehaviour
             iTimeLeft -= Time.deltaTime;
             canBeHit = false;
         }
-
     }
 
     IEnumerator PlayerFlash(float time, float intervalTime)
@@ -95,12 +97,14 @@ public class Player : MonoBehaviour
     {
         if (canBeHit)
         {
+            anim.SetBool("Dead", false);
             knockBackActive = true;
             
             iTimeLeft = iFramesTimer;
             HP -= n;
             if (HP <= 0)
             {
+                anim.SetBool("Dead", true);
                 Kill();
             }
             StartCoroutine(PlayerFlash(iFramesTimer, flashInterval));
@@ -113,6 +117,7 @@ public class Player : MonoBehaviour
     {
         if (canBeHit)
         {
+            anim.SetBool("Dead", false);
             knockBackActive = true;
             colliderPos = colPos;
 
@@ -120,7 +125,9 @@ public class Player : MonoBehaviour
             HP -= n;
             if (HP <= 0)
             {
+                anim.SetBool("Dead", true);
                 Kill();
+               
             }
             StartCoroutine(PlayerFlash(iFramesTimer, flashInterval));
             //Update healthbar
