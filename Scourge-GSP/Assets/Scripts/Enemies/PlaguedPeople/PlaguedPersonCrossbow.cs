@@ -62,6 +62,11 @@ public class PlaguedPersonCrossbow : Enemy
             }
         }
             
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Death") && hitPoints <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+
     }
 
     private void FixedUpdate()
@@ -130,7 +135,8 @@ public class PlaguedPersonCrossbow : Enemy
 
     public override void Kill()
     {
-        Destroy(this.gameObject);
+        animator.SetBool("Dead", true);
+        //Destroy(this.gameObject);
     }
 
     IEnumerator DisableAttackAfterOneFrame ()

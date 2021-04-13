@@ -126,14 +126,18 @@ public class PlaguedPersonMelee : Enemy
         hb.transform.localScale = hitScale;
     }
 
+    private void Update()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Death") && hitPoints <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     override public void Kill() 
     {
-        /*
-            TODO:
-            Blood Effect
-            Corpse?? Delete Enemy?
-         */
-        Destroy(this.gameObject);
+        animator.SetBool("Dead", true);
+        //Destroy(this.gameObject);
     }
 
     public override void Damage(int n, Vector3 direction)
