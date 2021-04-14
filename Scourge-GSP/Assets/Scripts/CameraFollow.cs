@@ -25,7 +25,7 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
         Vector3 targetPos = playerTransform.position + offset;
-        transform.position = Vector3.Lerp(transform.position, targetPos, lerpFactor);
+        transform.position = Vector3.Lerp(transform.position, targetPos, lerpFactor * Time.deltaTime);
 
         //transform.position = playerTransform.position;
         //transform.Translate(offset);
@@ -36,6 +36,6 @@ public class CameraFollow : MonoBehaviour
     {
         size = 5;
         offset.Set(0,2,-10);
-        lerpFactor = 0.02f;
+        lerpFactor = 8f;
     }
 }
