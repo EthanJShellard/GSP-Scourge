@@ -33,8 +33,11 @@ public class BossController : MonoBehaviour
     private GameObject player;
     private bool facingRight = true;
 
+    private LoadManager lm;
+
     private void Start()
     {
+        lm = FindObjectOfType<LoadManager>();
         player = GameObject.FindGameObjectWithTag("Player");
         arm.SetActive(false);
     }
@@ -42,7 +45,10 @@ public class BossController : MonoBehaviour
     private void Update()
     {
         if (health <= 0)
+        {
             Destroy(this.gameObject);
+            lm.WinToMainMenu();
+        }
 
         if (player.transform.position.x < gameObject.transform.position.x && facingRight)
         {

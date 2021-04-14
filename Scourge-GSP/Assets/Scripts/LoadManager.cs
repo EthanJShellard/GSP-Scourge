@@ -24,6 +24,7 @@ public class LoadManager : MonoBehaviour
     {
         blackoutSquare = GetComponentInChildren<Image>();
         deathText = GetComponentInChildren<TextMeshProUGUI>();
+        deathText.text = "You Died";
 
         //This object needs to persist through loading screens
         DontDestroyOnLoad(this);
@@ -66,6 +67,51 @@ public class LoadManager : MonoBehaviour
 
         StartCoroutine(FadeOutBlackoutSquare());
 
+    }
+
+    public void WinToMainMenu()
+    {
+        deathText.text = "Level Complete!";
+        StartCoroutine(FadeInWinScreen());
+    }
+    private void LoadMenu()
+    {
+        Color c = deathText.color;
+        c.a = 0f;
+        deathText.color = c;
+        SceneManager.LoadScene(0);
+        StartCoroutine(FadeOutBlackoutSquare());
+    }
+
+    IEnumerator FadeInWinScreen()
+    {
+        float timer = 0f;
+        float timeAccumulator = 0.05f / fadeInTime;
+        float colourAccumulator = 0.01f;
+        Color c;
+
+        while (timer < fadeInTime)
+        {
+            if (blackoutSquare.color.a <= 1f)
+            {
+                c = blackoutSquare.color;
+                c.a += colourAccumulator;
+                blackoutSquare.color = c;
+            }
+
+            if (deathText.color.a <= 1f)
+            {
+                c = deathText.color;
+                c.a += colourAccumulator;
+                deathText.color = c;
+            }
+
+
+            timer += timeAccumulator;
+            yield return new WaitForSecondsRealtime(timeAccumulator);
+        }
+
+        LoadMenu();
     }
 
     IEnumerator FadeInDeathScreen() 
