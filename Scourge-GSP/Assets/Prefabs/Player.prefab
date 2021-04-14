@@ -202,7 +202,7 @@ MonoBehaviour:
     m_Bits: 512
   attackRange: 1
   damage: 1
-  clip: {fileID: 8300000, guid: 8802f7750d4f8354996c73383a665e4d, type: 3}
+  attackSound: {fileID: 8300000, guid: 8802f7750d4f8354996c73383a665e4d, type: 3}
 --- !u!114 &5954931576590902634
 MonoBehaviour:
   m_ObjectHideFlags: 0

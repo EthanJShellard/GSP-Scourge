@@ -11,7 +11,7 @@ public class PlayerAttackStick : MonoBehaviour
     [SerializeField] LayerMask enemies;
     [SerializeField] float attackRange;
     [SerializeField] int damage;
-    [SerializeField] AudioClip clip;
+    [SerializeField] AudioClip attackSound;
 
     private PlayerController pc;
     private Animator anim;
@@ -32,7 +32,7 @@ public class PlayerAttackStick : MonoBehaviour
             {
                 anim.SetBool("Attacking", true);
                 pc.SetAttacking(true);
-                audioSource.PlayOneShot(clip);
+                audioSource.PlayOneShot(attackSound);
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, enemies);
 
                 for(int i = 0; i < enemiesToDamage.Length; i++)
