@@ -141,6 +141,8 @@ public class Player : MonoBehaviour
     public void Kill()
     {
         //reset to checkpoint
+        canBeHit = false;
+        GetComponent<Collider2D>().enabled = false;
         lm.ReloadToCheckpoint();
     }
 
