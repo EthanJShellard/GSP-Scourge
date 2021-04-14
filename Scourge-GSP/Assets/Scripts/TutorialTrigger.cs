@@ -14,16 +14,18 @@ public class TutorialTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Tutorial")
+        if (collision.CompareTag("Player"))
         {
             tutorials.SetActive(true);
-            tutorialTimer = 100.0f;
-            tutorialTimer -= Time.deltaTime;
+        }
+    }
 
-            if(tutorialTimer <=0)
-            {
-                tutorials.SetActive(false);
-            }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+
+        if (other.CompareTag("Player"))
+        {
+            tutorials.SetActive(false);
         }
     }
 }
