@@ -138,6 +138,14 @@ public class PlayerController : MonoBehaviour
                 }
                 knocked = true;
             }
+            else
+            {
+                grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
+                if (grounded)
+                {
+                    player.setKnockBackState(false);
+                }
+            }
         }
 
     }

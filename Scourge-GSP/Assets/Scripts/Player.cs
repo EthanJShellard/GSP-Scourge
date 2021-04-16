@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     private Animator anim;
 
     public bool getKnockBackState() { return knockBackActive; }
+    public void setKnockBackState( bool _knockBack) { knockBackActive = _knockBack; }
     public Vector3 getColliderTransform() { return colliderPos; }
 
     private void Start()
@@ -79,7 +80,7 @@ public class Player : MonoBehaviour
             index++;
             yield return new WaitForSeconds(intervalTime);
         }
-        knockBackActive = false;
+        //knockBackActive = false;
     }
 
     public void HealFull() 
