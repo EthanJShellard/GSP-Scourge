@@ -8,9 +8,10 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private Transform shootPoint;
     [SerializeField] private GameObject projectile;
     [SerializeField] private float bulletSpeed;
+    [SerializeField] AudioClip shootSound;
     [Header("Time between attacks")]
     [SerializeField] private float AttackTimer;
-
+    
     [Header("Ability Visuals")]
     [SerializeField] private Image shootImage1;
 
@@ -18,12 +19,14 @@ public class PlayerShoot : MonoBehaviour
     private Vector2 lookDirection;
     private Player player;
     private PlayerController playerController;
+    private AudioSource audioSource;
 
     private void Start()
     {
         shootImage1.fillAmount = 0;
         player = GetComponent<Player>();
         playerController = GetComponent<PlayerController>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -62,6 +65,8 @@ public class PlayerShoot : MonoBehaviour
     private void FireProjectile()
     {
         GameObject firedProjectile = Instantiate(projectile, shootPoint.position, Quaternion.identity);
+
+        audioSource.PlayOneShot(shootSound);
 
         Rigidbody2D rigBod = firedProjectile.GetComponent<Rigidbody2D>();
 

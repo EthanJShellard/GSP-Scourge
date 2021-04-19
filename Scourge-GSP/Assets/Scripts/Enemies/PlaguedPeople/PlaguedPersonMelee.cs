@@ -128,7 +128,7 @@ public class PlaguedPersonMelee : Enemy
 
     private void Update()
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Death") && hitPoints <= 0)
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Death") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
         {
             Destroy(this.gameObject);
         }
@@ -137,6 +137,9 @@ public class PlaguedPersonMelee : Enemy
     override public void Kill() 
     {
         animator.SetBool("Dead", true);
+        aggroRange = 0f;
+        walkSpeed = 0;
+
         //Destroy(this.gameObject);
     }
 

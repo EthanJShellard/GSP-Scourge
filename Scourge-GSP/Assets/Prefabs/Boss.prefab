@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66581078838fe04cafc66d1056ce7d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 5
   moveSpeed: 1
   arm: {fileID: 4388971897738608661}
   playerLayer:
@@ -108,7 +108,7 @@ MonoBehaviour:
   shootRange: 10
   shotSpeed: 10
   shotSpreadAngle: 30
-  attackTimer: 1
+  attackTimer: 1.5
   bullet: {fileID: 5554066442225450490, guid: 5ca4b7a6f1416d94dae4f2449f58e5ff, type: 3}
 --- !u!61 &4388971896628698600
 BoxCollider2D:
