@@ -29,7 +29,7 @@ public class PauseMenuController : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     public void OpenPauseMenu() 
