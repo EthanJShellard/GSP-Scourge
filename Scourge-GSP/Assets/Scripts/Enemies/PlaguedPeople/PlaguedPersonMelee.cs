@@ -16,7 +16,6 @@ public class PlaguedPersonMelee : Enemy
     /// Horizontal distance from the player that this enemy will aim for before stopping to attack
     /// </summary>
     [SerializeField] private float desiredRange;
-    [SerializeField] private float bloodForce;
     [SerializeField] private float stunTime;
 
     //hit box stuff
@@ -28,7 +27,8 @@ public class PlaguedPersonMelee : Enemy
     float stunTimer = 0f;
     Animator animator;
     AudioSource audioSource;
-    [SerializeField]AudioClip hitSound;
+    [SerializeField] AudioClip hitSound;
+    [SerializeField] AudioClip deathSound;
     SpriteRenderer spriteRenderer;
 
     private enum MoveDirection { NONE, LEFT, RIGHT }
@@ -136,6 +136,7 @@ public class PlaguedPersonMelee : Enemy
     override public void Kill() 
     {
         animator.SetBool("Dead", true);
+        audioSource.PlayOneShot(deathSound);
         aggroRange = 0f;
         walkSpeed = 0;
 

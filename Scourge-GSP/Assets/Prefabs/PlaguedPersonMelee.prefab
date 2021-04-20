@@ -61,6 +61,7 @@ MonoBehaviour:
   stunTime: 1
   hb: {fileID: 7203513299981498745}
   hitSound: {fileID: 8300000, guid: 43c209ed18cbf6d4fb810ce25e8d9004, type: 3}
+  deathSound: {fileID: 8300000, guid: 408305cdc507749488f5c6762724f5eb, type: 3}
 --- !u!61 &896661534554833129
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -191,7 +192,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
