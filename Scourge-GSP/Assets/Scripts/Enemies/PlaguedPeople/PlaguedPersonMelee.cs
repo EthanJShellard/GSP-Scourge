@@ -27,8 +27,8 @@ public class PlaguedPersonMelee : Enemy
     bool stunned = false;
     float stunTimer = 0f;
     Animator animator;
-    ParticleSystem bloodParticleSystem;
-    ParticleSystemForceField forceField;
+    AudioSource audioSource;
+    [SerializeField]AudioClip hitSound;
     SpriteRenderer spriteRenderer;
 
     private enum MoveDirection { NONE, LEFT, RIGHT }
@@ -38,10 +38,9 @@ public class PlaguedPersonMelee : Enemy
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        bloodParticleSystem = GetComponentInChildren<ParticleSystem>();
-        forceField = GetComponent<ParticleSystemForceField>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         GetComponentInChildren<MeleeHiTBox>().SetDamage(attackDamage);
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -147,19 +146,14 @@ public class PlaguedPersonMelee : Enemy
     {
         direction.Normalize();
 
-        //Orient blood particles to away from the attack.
-        if (direction.x <= 0) forceField.directionX = bloodForce * direction.x;
-        else forceField.directionX = bloodForce * direction.x;
-
-        forceField.directionY = direction.y * bloodForce;
-
-        bloodParticleSystem.Play();
-
         rb.AddForce(direction * n * 3, ForceMode2D.Impulse);
         stunned = true;
         stunTimer = stunTime;
         animator.SetBool("Walking", false);
         StartCoroutine(StunTimer());
+
+        audioSource.pitch = Random.Range(0.8f, 1.2f);
+        audioSource.PlayOneShot(hitSound);
 
         hitPoints -= n;
         if (hitPoints <= 0) 
