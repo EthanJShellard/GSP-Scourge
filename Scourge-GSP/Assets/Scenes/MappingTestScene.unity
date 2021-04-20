@@ -2540,12 +2540,12 @@ PrefabInstance:
     - target: {fileID: 5954931576590902624, guid: ef808a3e3cb12e3468203dbf312c97db,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 90.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5954931576590902624, guid: ef808a3e3cb12e3468203dbf312c97db,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.2
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 5954931576590902624, guid: ef808a3e3cb12e3468203dbf312c97db,
         type: 3}
@@ -40031,7 +40031,7 @@ RectTransform:
   m_GameObject: {fileID: 1186494986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5835363, y: 1.5008882, z: 1.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1232572989}
   m_RootOrder: 1
@@ -40073,11 +40073,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'To use the stick press the left mouse button.
+  m_Text: 'To attack with your stick press the left mouse button.
 
 
-    To use the crossbow
-    press the right mouse button.'
+    To shoot
+    your crossbow press the right mouse button.'
 --- !u!222 &1186494989
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -40654,7 +40654,7 @@ RectTransform:
   m_GameObject: {fileID: 1319105047}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 6, z: 1}
+  m_LocalScale: {x: 8, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 1232572989}
   m_RootOrder: 0
@@ -40677,7 +40677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.9843137}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
