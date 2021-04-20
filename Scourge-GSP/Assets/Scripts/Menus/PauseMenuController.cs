@@ -13,6 +13,11 @@ public class PauseMenuController : MonoBehaviour
     void Start()
     {
         pauseMenu.SetActive(false);
+
+        foreach (Button b in GetComponentsInChildren<Button>()) 
+        {
+            b.image.alphaHitTestMinimumThreshold = 0.5f;
+        }
     }
 
     void Update()

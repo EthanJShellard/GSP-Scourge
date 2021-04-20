@@ -48,7 +48,7 @@ public class LoadManager : MonoBehaviour
         if (scene.buildIndex == checkPointSceneIndex) 
         {
             Player p = FindObjectOfType<Player>();
-            p.transform.position = respawnPosition;
+            if(p) p.transform.position = respawnPosition;
         }
     }
 
