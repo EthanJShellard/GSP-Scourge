@@ -1,10 +1,14 @@
 @ECHO OFF
+ECHO #####     ADDING TRACKED FOLDERS     #####  
 git add .\Scourge-GSP\Assets*
 git add .\Scourge-GSP\ProjectSettings*
-ECHO Adds complete
+ECHO #####     ADDING COMPLETE            ##### 
 set /P comment="Please input comment:"
+ECHO #####     COMMITTING                 ##### 
 git commit -m "%comment%"
+ECHO #####     PULLING                    ##### 
 git pull
+ECHO #####     PUSHING                    ##### 
 git push
-ECHO Ignore the red mess talking about untracked files
+ECHO #####     FINISHED                   ##### 
 PAUSE
