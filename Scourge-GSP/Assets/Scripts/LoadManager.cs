@@ -35,6 +35,15 @@ public class LoadManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
     {
+        LoadManager[] loadManagers = FindObjectsOfType<LoadManager>();
+        if (loadManagers.Length > 1) 
+        {
+            for (int i = 1; i < loadManagers.Length; i++) 
+            {
+                DestroyImmediate(loadManagers[i].gameObject);
+            }
+        }
+
         //If we have a checkpoint in this scene
         if (scene.buildIndex == checkPointSceneIndex) 
         {

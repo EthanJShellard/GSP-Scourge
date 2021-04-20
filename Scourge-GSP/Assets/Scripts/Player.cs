@@ -143,6 +143,7 @@ public class Player : MonoBehaviour
     {
         //reset to checkpoint
         canBeHit = false;
+        iTimeLeft = float.MaxValue;
         GetComponent<Collider2D>().enabled = false;
         lm.ReloadToCheckpoint();
     }
