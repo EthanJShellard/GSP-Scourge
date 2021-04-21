@@ -27,11 +27,14 @@ public class PlaguedPersonCrossbow : Enemy
     bool gameRunning;
 #endif
 
-
     float attackTimer;
     bool attackReady;
     SpriteRenderer sprite;
     Animator animator;
+    AudioSource audioSource;
+    [SerializeField] AudioClip crossbowFireSound;
+    [SerializeField] AudioClip hitSound;
+    [SerializeField] AudioClip deathSound;
 
     private void Start()
     {
@@ -44,6 +47,7 @@ public class PlaguedPersonCrossbow : Enemy
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
 
         doPatrol = ((leftPatrolDistance != 0) || (rightPatrolDistance != 0));
         rightBoundX = transform.position.x + rightPatrolDistance;
@@ -89,6 +93,8 @@ public class PlaguedPersonCrossbow : Enemy
                 GameObject cb = Instantiate(crossbowBolt);
                 cb.transform.position = transform.position;
                 cb.GetComponent<Bolt>().SetDirection(diff.x > 0);
+                //Play sound effect
+                audioSource.PlayOneShot(crossbowFireSound);
             }
         }
         else if (doPatrol) //Patrol
@@ -128,8 +134,12 @@ public class PlaguedPersonCrossbow : Enemy
         hitPoints -= n;
         if (hitPoints <= 0)
         {
-
             Kill();
+        }
+        else 
+        {
+            audioSource.pitch = Random.Range(0.8f, 1.2f); //Modulate pitch
+            audioSource.PlayOneShot(hitSound);
         }
     }
 
@@ -138,6 +148,9 @@ public class PlaguedPersonCrossbow : Enemy
         animator.SetBool("Dead", true);
         doPatrol = false;
         aggroRange = 0f;
+        GetComponent<Collider2D>().enabled = false;
+        rb.simulated = false;
+        audioSource.PlayOneShot(deathSound);
         //Destroy(this.gameObject);
     }
 

@@ -139,6 +139,8 @@ public class PlaguedPersonMelee : Enemy
         audioSource.PlayOneShot(deathSound);
         aggroRange = 0f;
         walkSpeed = 0;
+        rb.simulated = false;
+        GetComponent<Collider2D>().enabled = false;
 
         //Destroy(this.gameObject);
     }
@@ -159,7 +161,6 @@ public class PlaguedPersonMelee : Enemy
         hitPoints -= n;
         if (hitPoints <= 0) 
         {
-
             Kill();
         }
     }
