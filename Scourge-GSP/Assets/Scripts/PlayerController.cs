@@ -163,6 +163,7 @@ public class PlayerController : MonoBehaviour
     public void SetShooting(bool shooting) 
     {
         isShooting = shooting;
-        if (isShooting) animator.SetBool("Running", false);
+        animator.SetBool("Shooting", shooting);
+        //if (isShooting) animator.SetBool("Running", false);
     }
 }

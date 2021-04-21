@@ -20,6 +20,10 @@ public class PlayerShoot : MonoBehaviour
     private Player player;
     private PlayerController playerController;
     private AudioSource audioSource;
+    [SerializeField] GameObject arms;
+    [SerializeField] Vector3 armsPosition;
+    Animator animator;
+    SpriteRenderer spriteRenderer;
 
     private void Start()
     {
@@ -27,6 +31,9 @@ public class PlayerShoot : MonoBehaviour
         player = GetComponent<Player>();
         playerController = GetComponent<PlayerController>();
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        arms.SetActive(false);
     }
 
     private void Update()
@@ -44,6 +51,7 @@ public class PlayerShoot : MonoBehaviour
                 currentTime = AttackTimer;
 
                 playerController.SetShooting(true);
+                arms.SetActive(true);
             }
         }
         else
@@ -55,9 +63,14 @@ public class PlayerShoot : MonoBehaviour
             {
                 shootImage1.fillAmount = 0;
             }
-            else if (shootImage1.fillAmount <= 0.75) 
+            else if (shootImage1.fillAmount <= 0.75)
             {
                 playerController.SetShooting(false);
+                arms.SetActive(false);
+            }
+            else //First 0.25 seconds 
+            {
+                arms.transform.position = transform.position + armsPosition;
             }
         }
     }
