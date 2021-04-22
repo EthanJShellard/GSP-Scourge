@@ -31,13 +31,15 @@ public class BossController : MonoBehaviour
     private Attack currentAttack;
 
     private GameObject player;
-    private bool facingRight = true;
+    private bool facingRight = false;
 
     private LoadManager lm;
+    private Animator anim;
 
     private void Start()
     {
         lm = FindObjectOfType<LoadManager>();
+        anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         arm.SetActive(false);
     }
@@ -48,6 +50,15 @@ public class BossController : MonoBehaviour
         {
             Destroy(this.gameObject);
             lm.WinToMainMenu();
+        }
+
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("BossMouth") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5)
+        {
+            anim.SetBool("Mouth", false);
+        }
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("BossMelee") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.2)
+        {
+            anim.SetBool("Melee", false);
         }
 
         if (player.transform.position.x < gameObject.transform.position.x && facingRight)
@@ -91,6 +102,7 @@ public class BossController : MonoBehaviour
     {
         if (Mathf.Abs(transform.position.x - player.transform.position.x) < viewDistance)
         {
+            anim.SetBool("Walking", true);
             if (player.transform.position.x < gameObject.transform.position.x - melleeRange)
             {
                 transform.position += Vector3.left * moveSpeed * Time.deltaTime;
@@ -100,10 +112,15 @@ public class BossController : MonoBehaviour
                 transform.position += Vector3.right * moveSpeed * Time.deltaTime;
             }
         }
+        else
+        {
+            anim.SetBool("Walking", false);
+        }
     }
 
     void ShootSingleShot()
     {
+        anim.SetBool("Mouth", true);
         if (Mathf.Abs(transform.position.x - player.transform.position.x) < shootRange)
         {
             GameObject firedBullet;
@@ -122,6 +139,7 @@ public class BossController : MonoBehaviour
 
     void ShootShotgunShot()
     {
+        anim.SetBool("Mouth", true);
         if (Mathf.Abs(transform.position.x - player.transform.position.x) < shootRange)
         {
 
@@ -156,6 +174,7 @@ public class BossController : MonoBehaviour
 
     void MelleeAttack()
     {
+        anim.SetBool("Melee", true);
         if (Mathf.Abs(transform.position.x - player.transform.position.x) < melleeRange)
         {
             StartCoroutine(punch());
