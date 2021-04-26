@@ -83,7 +83,7 @@ public class PlaguedPersonCrossbow : Enemy
             //Face player
             sprite.flipX = (diff.x > 0);
 
-            if (attackReady)
+            if (attackReady && aggroRange > 0)
             {
                 animator.SetBool("Attack", true);
                 attackReady = false;
