@@ -130,12 +130,12 @@ public class BossController : MonoBehaviour
             GameObject firedBullet;
             if (facingRight)
             {
-                firedBullet = Instantiate(bullet, new Vector3(transform.position.x + 2, transform.position.y, .0f), Quaternion.identity);
+                firedBullet = Instantiate(bullet, new Vector3(transform.position.x + 1f, transform.position.y + 0.35f, .0f), Quaternion.identity);
                 firedBullet.GetComponent<Rigidbody2D>().velocity = Vector2.right * shotSpeed;
             }
             else
             {
-                firedBullet = Instantiate(bullet, new Vector3(transform.position.x - 2, transform.position.y, .0f), Quaternion.identity);
+                firedBullet = Instantiate(bullet, new Vector3(transform.position.x - 1f, transform.position.y + 0.35f, .0f), Quaternion.identity);
                 firedBullet.GetComponent<Rigidbody2D>().velocity = Vector2.left * shotSpeed;
             }
         }
@@ -150,9 +150,9 @@ public class BossController : MonoBehaviour
             GameObject[] firedBullets = new GameObject[3];
             if (facingRight)
             {
-                firedBullets[0] = Instantiate(bullet, new Vector3(transform.position.x + 2, transform.position.y, .0f), Quaternion.identity);
-                firedBullets[1] = Instantiate(bullet, new Vector3(transform.position.x + 2, transform.position.y, .0f), Quaternion.identity);
-                firedBullets[2] = Instantiate(bullet, new Vector3(transform.position.x + 2, transform.position.y, .0f), Quaternion.identity);
+                firedBullets[0] = Instantiate(bullet, new Vector3(transform.position.x + 1, transform.position.y + 0.35f, .0f), Quaternion.identity);
+                firedBullets[1] = Instantiate(bullet, new Vector3(transform.position.x + 1, transform.position.y + 0.35f, .0f), Quaternion.identity);
+                firedBullets[2] = Instantiate(bullet, new Vector3(transform.position.x + 1, transform.position.y + 0.35f, .0f), Quaternion.identity);
                 for (int i = -1; i < 2; i++)
                 {
                     firedBullets[i+1].transform.rotation = Quaternion.Euler(new Vector3(.0f, .0f, 90.0f + (shotSpreadAngle * i)) * -1);
@@ -162,9 +162,9 @@ public class BossController : MonoBehaviour
             }
             else
             {
-                firedBullets[0] = Instantiate(bullet, new Vector3(transform.position.x - 2, transform.position.y, .0f), Quaternion.identity);
-                firedBullets[1] = Instantiate(bullet, new Vector3(transform.position.x - 2, transform.position.y, .0f), Quaternion.identity);
-                firedBullets[2] = Instantiate(bullet, new Vector3(transform.position.x - 2, transform.position.y, .0f), Quaternion.identity);
+                firedBullets[0] = Instantiate(bullet, new Vector3(transform.position.x - 1, transform.position.y + 0.35f, .0f), Quaternion.identity);
+                firedBullets[1] = Instantiate(bullet, new Vector3(transform.position.x - 1, transform.position.y + 0.35f , .0f), Quaternion.identity);
+                firedBullets[2] = Instantiate(bullet, new Vector3(transform.position.x - 1, transform.position.y + 0.35f , .0f), Quaternion.identity);
                 for (int i = -1; i < 2; i++)
                 {
                     firedBullets[i + 1].transform.rotation = Quaternion.Euler(new Vector3(.0f, .0f, 90.0f + (shotSpreadAngle * i)));

@@ -11,6 +11,7 @@ public class ProjectileController : MonoBehaviour
     private float lifeTimeLeft;
     private Rigidbody2D rb2d;
     private bool facingRight = false;
+    private bool flippedY = false;
 
     private void Start()
     {
@@ -23,6 +24,8 @@ public class ProjectileController : MonoBehaviour
         float angle = Mathf.Atan2(rb2d.velocity.y, rb2d.velocity.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
+        if (rb2d.velocity.x < 0 && !flippedY) FlipY();
+
         if (lifeTimeLeft <= .0f)
         {
             Destroy(this.gameObject);
@@ -31,6 +34,14 @@ public class ProjectileController : MonoBehaviour
         {
             lifeTimeLeft -= Time.deltaTime;
         }
+    }
+
+    void FlipY()
+    {
+        flippedY = true;
+        Vector3 scale = transform.localScale;
+        scale.y *= -1;
+        transform.localScale = scale;
     }
 
     public void Flip()

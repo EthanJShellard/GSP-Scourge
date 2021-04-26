@@ -110,7 +110,7 @@ MonoBehaviour:
   shootRange: 10
   shotSpeed: 10
   shotSpreadAngle: 30
-  attackTimer: 1.5
+  attackTimer: 2.5
   bullet: {fileID: 5554066442225450490, guid: 5ca4b7a6f1416d94dae4f2449f58e5ff, type: 3}
 --- !u!61 &4388971896628698600
 BoxCollider2D:
@@ -125,7 +125,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.039817154, y: -0.0076933503}
+  m_Offset: {x: 0.04779902, y: -0.0076933503}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -136,7 +136,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.58471644, y: 0.9905045}
+  m_Size: {x: 0.51021886, y: 0.9905045}
   m_EdgeRadius: 0
 --- !u!50 &4388971896628698604
 Rigidbody2D:
