@@ -145,6 +145,9 @@ public class Player : MonoBehaviour
         canBeHit = false;
         iTimeLeft = float.MaxValue;
         GetComponent<Collider2D>().enabled = false;
+        GetComponent<PlayerController>().enabled = false;
+        GetComponent<PlayerAttackStick>().enabled = false;
+        GetComponent<PlayerShoot>().enabled = false;
         lm.ReloadToCheckpoint();
     }
 
