@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
                 if (horizontalInput != 0)
                 {
                     animator.SetBool("Running", true);
-                    if (!footstepSource.isPlaying && grounded) 
+                    if (!footstepSource.isPlaying && grounded && attackSlowdown >= 1) 
                     {
                         footstepSource.loop = true;
                         footstepSource.Play();
@@ -166,6 +166,7 @@ public class PlayerController : MonoBehaviour
         if (attacking)
         {
             attackSlowdown = AttackSlowdownFactor;
+            footstepSource.Stop();
         }
         else 
         {
