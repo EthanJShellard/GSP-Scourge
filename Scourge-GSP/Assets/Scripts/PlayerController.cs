@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
                 isJumping = true;
                 jumpTimeCounter = jumpTime;
 
+
                 Vector2 vel = rb.velocity;
                 vel.y = jumpForce;
                 rb.velocity = vel;
@@ -62,6 +63,10 @@ public class PlayerController : MonoBehaviour
             {
                 animator.SetBool("Jumping", false);
             }
+        }
+        else 
+        {
+            footstepSource.Stop();
         }
 
         if (Input.GetKey(KeyCode.Space) && isJumping)
@@ -102,7 +107,7 @@ public class PlayerController : MonoBehaviour
                 if (horizontalInput != 0)
                 {
                     animator.SetBool("Running", true);
-                    if (!footstepSource.isPlaying) 
+                    if (!footstepSource.isPlaying && grounded) 
                     {
                         footstepSource.loop = true;
                         footstepSource.Play();
