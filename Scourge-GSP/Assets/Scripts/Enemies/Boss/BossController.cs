@@ -48,8 +48,12 @@ public class BossController : MonoBehaviour
     {
         if (health <= 0)
         {
-            Destroy(this.gameObject);
-            lm.WinToMainMenu();
+            anim.SetBool("Dead", true);
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("BossDeath") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5)
+            {
+                Destroy(this.gameObject);
+                lm.WinToMainMenu();
+            }
         }
 
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("BossMouth") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5)
