@@ -144,6 +144,7 @@ public class Player : MonoBehaviour
         //reset to checkpoint
         canBeHit = false;
         iTimeLeft = float.MaxValue;
+        GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponent<Collider2D>().enabled = false;
         GetComponent<PlayerController>().enabled = false;
         GetComponent<PlayerAttackStick>().enabled = false;
