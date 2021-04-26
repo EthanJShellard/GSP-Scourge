@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private float jumpTime;
     [SerializeField] private float knockbackForce;
+    [SerializeField] private AudioSource footstepSource;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -101,10 +102,17 @@ public class PlayerController : MonoBehaviour
                 if (horizontalInput != 0)
                 {
                     animator.SetBool("Running", true);
+                    if (!footstepSource.isPlaying) 
+                    {
+                        footstepSource.loop = true;
+                        footstepSource.Play();
+                    }
+                    
                 }
                 else
                 {
                     animator.SetBool("Running", false);
+                    footstepSource.loop = false;
                 }
 
                 if (horizontalInput > 0 && !player.IsFacingRight())
