@@ -20,6 +20,9 @@ public class ProjectileController : MonoBehaviour
 
     private void Update()
     {
+        float angle = Mathf.Atan2(rb2d.velocity.y, rb2d.velocity.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
         if (lifeTimeLeft <= .0f)
         {
             Destroy(this.gameObject);
