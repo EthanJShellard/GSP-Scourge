@@ -26,6 +26,10 @@ public class BossController : MonoBehaviour
     [Header("")]
     [SerializeField] private GameObject bullet;
     [SerializeField] private AudioClip roar;
+    [Header("Cycle Controls")]
+    [SerializeField] private int fastCycleCount; //Number of cycles before break
+    [SerializeField] private float breakTimerModifier; //Multiplicative modifier of time between next attack used to create break
+    int cycleCounter = 0;
 
     private float attackTime = .0f;
 
@@ -72,6 +76,7 @@ public class BossController : MonoBehaviour
             if (attackTime <= .0f)
             {
                 currentAttack = getRandomAttack();
+                cycleCounter++;
                 switch (currentAttack)
                 {
                     case Attack.Mellee:
@@ -84,7 +89,16 @@ public class BossController : MonoBehaviour
                         ShootShotgunShot();
                         break;
                 }
-                attackTime = attackTimer;
+                if (cycleCounter == fastCycleCount)
+                {
+                    cycleCounter = 0;
+                    attackTime = attackTimer * breakTimerModifier;
+                }
+                else 
+                {
+                    attackTime = attackTimer;
+                }
+                
             }
             else
             {
