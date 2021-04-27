@@ -56,15 +56,6 @@ public class BossController : MonoBehaviour
             }
         }
 
-        //if (!anim.GetCurrentAnimatorStateInfo(0).IsName("BossMouth") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0)
-        //{
-        //    anim.SetBool("Mouth", false);
-        //}
-        //if (!anim.GetCurrentAnimatorStateInfo(0).IsName("BossMelee") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0)
-        //{
-        //    anim.SetBool("Melee", false);
-        //}
-
         if (player.transform.position.x < gameObject.transform.position.x && facingRight)
         {
             Flip();
