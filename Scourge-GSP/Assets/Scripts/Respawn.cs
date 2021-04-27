@@ -14,8 +14,11 @@ public class Respawn : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            collision.GetComponent<Player>().SetRespawnPoint(this);
-            audioSource.PlayOneShot(activateSound);
+            if (!GetComponent<Animator>().GetBool("On"))
+            {
+                audioSource.PlayOneShot(activateSound);
+                collision.GetComponent<Player>().SetRespawnPoint(this);
+            }
         }
     }
 }
