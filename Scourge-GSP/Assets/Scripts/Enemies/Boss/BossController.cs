@@ -61,6 +61,8 @@ public class BossController : MonoBehaviour
                 Destroy(this.gameObject);
                 lm.WinToMainMenu();
             }
+
+            return;
         }
 
         if (player.transform.position.x < gameObject.transform.position.x && facingRight)
