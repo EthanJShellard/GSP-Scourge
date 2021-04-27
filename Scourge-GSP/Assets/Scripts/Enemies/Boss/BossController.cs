@@ -55,7 +55,6 @@ public class BossController : MonoBehaviour
     {
         if (health <= 0)
         {
-            anim.SetBool("Dead", true);
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("BossDeath") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0)
             {
                 Destroy(this.gameObject);
@@ -210,6 +209,10 @@ public class BossController : MonoBehaviour
     public void Damage(int damage)
     {
         health -= damage;
+        if (health <= 0) 
+        {
+            anim.SetBool("Dead", true);
+        }
     }
 
     Attack GetRandomAttack()
