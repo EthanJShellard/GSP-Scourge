@@ -75,7 +75,7 @@ public class BossController : MonoBehaviour
         {
             if (attackTime <= .0f)
             {
-                currentAttack = getRandomAttack();
+                currentAttack = GetRandomAttack();
                 cycleCounter++;
                 switch (currentAttack)
                 {
@@ -194,10 +194,10 @@ public class BossController : MonoBehaviour
     void MelleeAttack()
     {
         anim.SetBool("Melee", true);        
-        StartCoroutine(punch());
+        StartCoroutine(Punch());
     }
 
-    IEnumerator punch()
+    IEnumerator Punch()
     {
         arm.SetActive(true);
         yield return new WaitForSeconds(.5f);
@@ -210,7 +210,7 @@ public class BossController : MonoBehaviour
         health -= damage;
     }
 
-    Attack getRandomAttack()
+    Attack GetRandomAttack()
     {
         if (Mathf.Abs(transform.position.x - player.transform.position.x) <= melleeRange) return Attack.Mellee;
         
