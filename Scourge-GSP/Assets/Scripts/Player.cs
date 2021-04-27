@@ -183,6 +183,5 @@ public class Player : MonoBehaviour
         //Activate censer animation
         r.GetComponent<Animator>().SetBool("On", true);
 
-
     }
 }
