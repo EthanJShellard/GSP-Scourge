@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenuController : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    private MonoBehaviour[] playerBehaviours = new MonoBehaviour[3];
 
     bool isOpen = false;
 
@@ -18,6 +19,11 @@ public class PauseMenuController : MonoBehaviour
         {
             b.image.alphaHitTestMinimumThreshold = 0.5f;
         }
+
+        Player player = FindObjectOfType<Player>();
+        playerBehaviours[0] = player.GetComponent<PlayerController>();
+        playerBehaviours[1] = player.GetComponent<PlayerAttackStick>();
+        playerBehaviours[2] = player.GetComponent<PlayerShoot>();
     }
 
     void Update()
@@ -42,6 +48,10 @@ public class PauseMenuController : MonoBehaviour
         isOpen = true;
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
+
+        playerBehaviours[0].enabled = false;
+        playerBehaviours[1].enabled = false;
+        playerBehaviours[2].enabled = false;
     }
 
     public void ClosePauseMenu() 
@@ -49,6 +59,10 @@ public class PauseMenuController : MonoBehaviour
         isOpen = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+
+        playerBehaviours[0].enabled = true;
+        playerBehaviours[1].enabled = true;
+        playerBehaviours[2].enabled = true;
     }
 
     public void Quit() 
