@@ -25,6 +25,7 @@ public class BossController : MonoBehaviour
     [SerializeField] private float attackTimer = 1.0f;
     [Header("")]
     [SerializeField] private GameObject bullet;
+    [SerializeField] private AudioClip roar;
 
     private float attackTime = .0f;
 
@@ -35,6 +36,7 @@ public class BossController : MonoBehaviour
 
     private LoadManager lm;
     private Animator anim;
+    private AudioSource audioSource;
 
     private void Start()
     {
@@ -42,6 +44,7 @@ public class BossController : MonoBehaviour
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         arm.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -119,6 +122,7 @@ public class BossController : MonoBehaviour
     void ShootSingleShot()
     {
         anim.SetBool("Mouth", true);
+        audioSource.PlayOneShot(roar);
         if (Mathf.Abs(transform.position.x - player.transform.position.x) < shootRange)
         {
             GameObject firedBullet;
@@ -139,6 +143,7 @@ public class BossController : MonoBehaviour
     void ShootShotgunShot()
     {
         anim.SetBool("Mouth", true);
+        audioSource.PlayOneShot(roar);
         if (Mathf.Abs(transform.position.x - player.transform.position.x) < shootRange)
         {
 
