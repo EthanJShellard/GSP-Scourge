@@ -114,6 +114,7 @@ MonoBehaviour:
   attackTimer: 2.5
   bullet: {fileID: 5554066442225450490, guid: 5ca4b7a6f1416d94dae4f2449f58e5ff, type: 3}
   roar: {fileID: 8300000, guid: d78dc4959ff14ff49944fc4cb6cca8b9, type: 3}
+  grunt: {fileID: 8300000, guid: 7e2c0b5e6aced554a8b73b7115cb56e5, type: 3}
   fastCycleCount: 3
   breakTimerModifier: 1.5
 --- !u!61 &4388971896628698600

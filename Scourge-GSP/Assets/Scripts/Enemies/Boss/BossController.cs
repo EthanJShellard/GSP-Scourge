@@ -26,6 +26,7 @@ public class BossController : MonoBehaviour
     [Header("")]
     [SerializeField] private GameObject bullet;
     [SerializeField] private AudioClip roar;
+    [SerializeField] private AudioClip grunt;
     [Header("Cycle Controls")]
     [SerializeField] private int fastCycleCount; //Number of cycles before break
     [SerializeField] private float breakTimerModifier; //Multiplicative modifier of time between next attack used to create break
@@ -194,7 +195,8 @@ public class BossController : MonoBehaviour
 
     void MelleeAttack()
     {
-        anim.SetBool("Melee", true);        
+        anim.SetBool("Melee", true);
+        audioSource.PlayOneShot(grunt);
         StartCoroutine(Punch());
     }
 

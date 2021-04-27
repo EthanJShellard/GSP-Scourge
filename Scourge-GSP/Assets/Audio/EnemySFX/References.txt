@@ -1,5 +1,11 @@
 Wet hit sound
 https://freesound.org/people/QueijoCheedar/sounds/457439/
 
-Melee death
+Small enemy death
 https://freesound.org/people/scorpion67890/sounds/396798/
+
+Boss Roar (ranged attack)
+https://freesound.org/people/jacobalcook/sounds/195568/
+
+Boss Grunt (melee attack)
+https://freesound.org/people/Michael%20Klier/sounds/318319/
