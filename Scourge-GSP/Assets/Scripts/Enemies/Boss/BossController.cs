@@ -72,15 +72,12 @@ public class BossController : MonoBehaviour
                 switch (currentAttack)
                 {
                     case Attack.Mellee:
-                        Debug.Log("Mellee");
                         MelleeAttack();
                         break;
                     case Attack.SingleShot:
-                        Debug.Log("Single Shot");
                         ShootSingleShot();
                         break;
                     case Attack.ShotGun:
-                        Debug.Log("Shotgun shot");
                         ShootShotgunShot();
                         break;
                 }
