@@ -196,7 +196,7 @@ public class BossController : MonoBehaviour
         if (Vector3.Distance(transform.position, player.transform.position) < melleeRange) return Attack.Mellee;
         
         Attack nextAttack;
-        int randomNumber = Random.Range(0, 3);
+        int randomNumber = Random.Range(0, 2);
 
         nextAttack = (Attack)randomNumber;
 
