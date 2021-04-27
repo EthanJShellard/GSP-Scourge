@@ -49,21 +49,21 @@ public class BossController : MonoBehaviour
         if (health <= 0)
         {
             anim.SetBool("Dead", true);
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("BossDeath") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5)
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("BossDeath") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0)
             {
                 Destroy(this.gameObject);
                 lm.WinToMainMenu();
             }
         }
 
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("BossMouth") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5)
-        {
-            anim.SetBool("Mouth", false);
-        }
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("BossMelee") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.2)
-        {
-            anim.SetBool("Melee", false);
-        }
+        //if (!anim.GetCurrentAnimatorStateInfo(0).IsName("BossMouth") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0)
+        //{
+        //    anim.SetBool("Mouth", false);
+        //}
+        //if (!anim.GetCurrentAnimatorStateInfo(0).IsName("BossMelee") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0)
+        //{
+        //    anim.SetBool("Melee", false);
+        //}
 
         if (player.transform.position.x < gameObject.transform.position.x && facingRight)
         {
@@ -106,14 +106,20 @@ public class BossController : MonoBehaviour
     {
         if (Mathf.Abs(transform.position.x - player.transform.position.x) < viewDistance)
         {
-            anim.SetBool("Walking", true);
+
             if (player.transform.position.x < gameObject.transform.position.x - melleeRange)
             {
                 transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+                anim.SetBool("Walking", true);
             }
-            if (player.transform.position.x > gameObject.transform.position.x + melleeRange)
+            else if (player.transform.position.x > gameObject.transform.position.x + melleeRange)
             {
                 transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+                anim.SetBool("Walking", true);
+            }
+            else 
+            {
+                anim.SetBool("Walking", false);
             }
         }
         else
@@ -139,6 +145,7 @@ public class BossController : MonoBehaviour
                 firedBullet.GetComponent<Rigidbody2D>().velocity = Vector2.left * shotSpeed;
             }
         }
+        StartCoroutine(StopMouthAfterOneFrame());
     }
 
     void ShootShotgunShot()
@@ -174,15 +181,13 @@ public class BossController : MonoBehaviour
             }
 
         }
+        StartCoroutine(StopMouthAfterOneFrame());
     }
 
     void MelleeAttack()
     {
-        anim.SetBool("Melee", true);
-        if (Mathf.Abs(transform.position.x - player.transform.position.x) < melleeRange)
-        {
-            StartCoroutine(punch());
-        }
+        anim.SetBool("Melee", true);        
+        StartCoroutine(punch());
     }
 
     IEnumerator punch()
@@ -190,6 +195,7 @@ public class BossController : MonoBehaviour
         arm.SetActive(true);
         yield return new WaitForSeconds(.5f);
         arm.SetActive(false);
+        anim.SetBool("Melee", false);
     }
 
     public void Damage(int damage)
@@ -206,6 +212,12 @@ public class BossController : MonoBehaviour
         nextAttack = (Attack)randomNumber;
 
         return nextAttack;
+    }
+
+    IEnumerator StopMouthAfterOneFrame() 
+    {
+        yield return 0;
+        anim.SetBool("Mouth", false);
     }
 
     public void Flip()
