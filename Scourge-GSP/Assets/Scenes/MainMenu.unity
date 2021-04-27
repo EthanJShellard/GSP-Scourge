@@ -219,7 +219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &116446002
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2670,6 +2670,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748447699}
   m_CullTransparentMesh: 0
+--- !u!1 &1761810782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2734076198450461028, guid: 7bc5d43f3e328a54d8f553e2d63c9c1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1077690465}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1761810785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761810782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77006d9140ed9bf4ab27258f8e065991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterMixer: {fileID: 24100000, guid: d975e2c9e18375345b6e5fbe22d1ad8e, type: 2}
 --- !u!1 &1796408171
 GameObject:
   m_ObjectHideFlags: 0

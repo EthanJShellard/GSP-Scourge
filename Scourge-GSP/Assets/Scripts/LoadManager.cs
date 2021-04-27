@@ -27,10 +27,13 @@ public class LoadManager : MonoBehaviour
         deathText.text = "You Died";
 
         //This object needs to persist through loading screens
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this.gameObject);
 
         //Function is added to list of delegates
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        //Make sure that Volume Manager attempts to bind to volume slider
+        GetComponent<VolumeManager>().BindToVolumeSlider();
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
@@ -50,6 +53,9 @@ public class LoadManager : MonoBehaviour
             Player p = FindObjectOfType<Player>();
             if(p) p.transform.position = respawnPosition;
         }
+
+        //Make sure that Volume Manager attempts to bind to volume slider
+        GetComponent<VolumeManager>().BindToVolumeSlider();
     }
 
     public void SetRespawnPosition(Vector3 pos) 
