@@ -106,7 +106,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   viewDistance: 15
-  melleeRange: 3
+  melleeRange: 1.5
   shootRange: 10
   shotSpeed: 10
   shotSpreadAngle: 30
@@ -274,7 +274,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.027916282, y: -0.010379255}
+  m_Offset: {x: -0.677948, y: -0.15603453}
   m_SpriteTilingProperty:
     border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
     pivot: {x: 0.5, y: 0.5}
@@ -285,7 +285,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6624958, y: 0.3381474}
+  m_Size: {x: 6.5850067, y: 0.41278064}
   m_EdgeRadius: 0
 --- !u!114 &4388971897738608665
 MonoBehaviour:
