@@ -26,7 +26,7 @@ public class PlayerAttackStick : MonoBehaviour
 
     void Update()
     {
-        if(timeAttack <= 0)
+        if(timeAttack <= 0 && !pc.GetShooting())
         {
             if (Input.GetMouseButtonDown(0))
             {

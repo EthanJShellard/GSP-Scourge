@@ -5,6 +5,8 @@ using UnityEngine;
 public class MusicSwitcher : MonoBehaviour
 {
     [SerializeField] AudioClip BossMusic;
+    [SerializeField] Transform boss;
+
     private bool switched = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,6 +16,7 @@ public class MusicSwitcher : MonoBehaviour
             aus.Stop();
             aus.PlayOneShot(BossMusic);
             switched = true;
+            boss.gameObject.SetActive(true);
         }
     }
 }

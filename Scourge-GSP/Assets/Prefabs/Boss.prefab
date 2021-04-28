@@ -101,12 +101,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  moveSpeed: 1
+  moveSpeed: 1.5
   arm: {fileID: 4388971897738608661}
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
-  viewDistance: 15
+  viewDistance: 50
   melleeRange: 1.5
   shootRange: 10
   shotSpeed: 10
