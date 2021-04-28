@@ -2112,7 +2112,7 @@ PrefabInstance:
     - target: {fileID: 4388971896628698601, guid: b3fdb56d60127d449aef263c42119bb3,
         type: 3}
       propertyPath: viewDistance
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4388971896628698601, guid: b3fdb56d60127d449aef263c42119bb3,
         type: 3}
@@ -2866,7 +2866,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -499.47, y: 238.24}
-  m_SizeDelta: {x: 163.82083, y: 129.39738}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &631591805
 MonoBehaviour:
@@ -2887,7 +2887,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -638404914095086201, guid: 38591f0faf062bf40bf0cc75337aefed,
+  m_Sprite: {fileID: -6654563247040919448, guid: 38591f0faf062bf40bf0cc75337aefed,
     type: 3}
   m_Type: 3
   m_PreserveAspect: 0
@@ -47121,7 +47121,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 66}
+  m_AnchoredPosition: {x: 0, y: 90}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1186494988
@@ -47145,7 +47145,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -47156,11 +47156,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'To attack with your stick press the left mouse button.
+  m_Text: 'To attack with the Plaguestick press the left mouse button.
 
 
     To shoot
-    your crossbow press the right mouse button.'
+    your crossbow press the right mouse button.
+
+
+    Good luck...'
 --- !u!222 &1186494989
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -47655,8 +47658,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -499.47, y: 238.24}
-  m_SizeDelta: {x: 163.82083, y: 129.39738}
+  m_AnchoredPosition: {x: -503.2, y: 238.24}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1295706845
 MonoBehaviour:
