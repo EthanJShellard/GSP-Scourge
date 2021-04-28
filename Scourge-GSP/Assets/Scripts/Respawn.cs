@@ -18,6 +18,7 @@ public class Respawn : MonoBehaviour
             {
                 audioSource.PlayOneShot(activateSound);
                 collision.GetComponent<Player>().SetRespawnPoint(this);
+                collision.GetComponent<Player>().HealFull();
             }
         }
     }
