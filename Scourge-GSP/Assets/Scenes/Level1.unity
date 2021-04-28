@@ -2109,6 +2109,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 4388971896628698599, guid: b3fdb56d60127d449aef263c42119bb3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4388971896628698601, guid: b3fdb56d60127d449aef263c42119bb3,
         type: 3}
       propertyPath: viewDistance
@@ -48704,6 +48709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossMusic: {fileID: 8300000, guid: 5d80b0115549a63459920bbf696b73b4, type: 3}
+  boss: {fileID: 89597879}
 --- !u!1 &1422588214
 GameObject:
   m_ObjectHideFlags: 0
