@@ -57,7 +57,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   desiredRange: 1
-  stunTime: 0.2
+  stunTime: 0.5
   hb: {fileID: 7203513299981498745}
   hitSound: {fileID: 8300000, guid: 43c209ed18cbf6d4fb810ce25e8d9004, type: 3}
   deathSound: {fileID: 8300000, guid: 408305cdc507749488f5c6762724f5eb, type: 3}

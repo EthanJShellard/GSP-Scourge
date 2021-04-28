@@ -63,12 +63,12 @@ public class PlayerShoot : MonoBehaviour
             {
                 shootImage1.fillAmount = 0;
             }
-            else if (shootImage1.fillAmount <= 0.75)
+            else if (shootImage1.fillAmount <= 0.9)
             {
                 playerController.SetShooting(false);
                 arms.SetActive(false);
             }
-            else //First 0.25 seconds 
+            else 
             {
                 arms.transform.position = transform.position + armsPosition;
             }
