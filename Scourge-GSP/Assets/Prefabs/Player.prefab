@@ -244,7 +244,7 @@ MonoBehaviour:
   groundCheck: {fileID: 5954931576900802164}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 5120
   jumpTime: 0.35
   knockbackForce: 50
   footstepSource: {fileID: 7632866375749767292}

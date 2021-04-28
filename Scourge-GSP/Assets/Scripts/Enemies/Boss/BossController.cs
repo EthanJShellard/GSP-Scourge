@@ -27,6 +27,7 @@ public class BossController : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private AudioClip roar;
     [SerializeField] private AudioClip grunt;
+    [SerializeField] private AudioClip hit;
     [Header("Cycle Controls")]
     [SerializeField] private int fastCycleCount; //Number of cycles before break
     [SerializeField] private float breakTimerModifier; //Multiplicative modifier of time between next attack used to create break
@@ -210,6 +211,7 @@ public class BossController : MonoBehaviour
 
     public void Damage(int damage)
     {
+        audioSource.PlayOneShot(hit);
         health -= damage;
         if (health <= 0) 
         {
