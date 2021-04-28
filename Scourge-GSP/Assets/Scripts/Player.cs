@@ -150,6 +150,7 @@ public class Player : MonoBehaviour
         GetComponent<PlayerAttackStick>().enabled = false;
         GetComponent<PlayerShoot>().enabled = false;
         GetComponent<PlayerShoot>().HideArms();
+        FindObjectOfType<PauseMenuController>().enabled = false;
         lm.ReloadToCheckpoint();
     }
 
