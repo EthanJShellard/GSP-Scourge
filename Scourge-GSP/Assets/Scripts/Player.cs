@@ -144,11 +144,12 @@ public class Player : MonoBehaviour
         //reset to checkpoint
         canBeHit = false;
         iTimeLeft = float.MaxValue;
-        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        GetComponent<Rigidbody2D>().simulated = false;
         GetComponent<Collider2D>().enabled = false;
         GetComponent<PlayerController>().enabled = false;
         GetComponent<PlayerAttackStick>().enabled = false;
         GetComponent<PlayerShoot>().enabled = false;
+        GetComponent<PlayerShoot>().HideArms();
         lm.ReloadToCheckpoint();
     }
 

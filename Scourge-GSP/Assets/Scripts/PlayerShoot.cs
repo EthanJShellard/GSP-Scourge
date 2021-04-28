@@ -11,7 +11,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] AudioClip shootSound;
     [Header("Time between attacks")]
     [SerializeField] private float AttackTimer;
-    
+
     [Header("Ability Visuals")]
     [SerializeField] private Image shootImage1;
 
@@ -68,7 +68,7 @@ public class PlayerShoot : MonoBehaviour
                 playerController.SetShooting(false);
                 arms.SetActive(false);
             }
-            else 
+            else
             {
                 arms.transform.position = transform.position + armsPosition;
             }
@@ -90,6 +90,11 @@ public class PlayerShoot : MonoBehaviour
             firedProjectile.GetComponent<SpriteRenderer>().flipX = true;
         }
 
+    }
+
+    public void HideArms() 
+    {
+        arms.SetActive(false);
     }
 
 }
