@@ -112,9 +112,13 @@ public class PlaguedPersonMelee : Enemy
             //Stop Walking
             moveDir = MoveDirection.NONE;
             //Start Attacking
-            animator.SetBool("Attacking", true);
-            StartCoroutine(DisableAttackAfterOneFrame());
-            spriteRenderer.flipX = (diff > 0);  
+            if (Mathf.Abs(player.transform.position.y - transform.position.y) < 1) 
+            {
+                animator.SetBool("Attacking", true);
+                StartCoroutine(DisableAttackAfterOneFrame());
+                spriteRenderer.flipX = (diff > 0);
+            }
+              
         }
     }
 
