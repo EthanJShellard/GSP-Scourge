@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  moveSpeed: 1
+  moveSpeed: 1.5
   arm: {fileID: 4388971897738608661}
   playerLayer:
     serializedVersion: 2
