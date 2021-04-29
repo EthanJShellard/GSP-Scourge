@@ -38,6 +38,7 @@ public class LoadManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
     {
+        deathText.text = "You Died";
         LoadManager[] loadManagers = FindObjectsOfType<LoadManager>();
         if (loadManagers.Length > 1) 
         {
