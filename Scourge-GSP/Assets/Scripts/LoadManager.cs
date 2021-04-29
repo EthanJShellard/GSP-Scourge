@@ -88,6 +88,7 @@ public class LoadManager : MonoBehaviour
     public void WinToMainMenu()
     {
         deathText.text = "Level Complete!";
+        checkPointSceneIndex = -1;
         StartCoroutine(FadeInWinScreen());
     }
     private void LoadMenu()
