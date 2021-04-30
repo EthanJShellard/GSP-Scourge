@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  AttackSlowdownFactor: 0.1
+  AttackSlowdownFactor: 1
   jumpForce: 6
   groundCheck: {fileID: 5954931576900802164}
   whatIsGround:
