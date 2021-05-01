@@ -1,0 +1,7 @@
+Parallax Background
+"Parallax Dusk Mountain Background"
+https://assetstore.unity.com/packages/2d/textures-materials/tiles/parallax-dusk-mountain-background-53403
+
+Cave Background
+"Parallax Cave Background"
+https://www.reddit.com/r/PixelArt/comments/61xvdq/ocwipcc_a_parallax_cave_background_i_made/
