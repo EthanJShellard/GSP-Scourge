@@ -16,15 +16,19 @@ public class LoadManager : MonoBehaviour
 
     [SerializeField] float fadeInTime;
     [SerializeField] float fadeOutTime;
+    [SerializeField] Image YouDiedImage;
+    [SerializeField] Image VictoryImage;
     Image blackoutSquare;
-    TextMeshProUGUI deathText;
 
     // Start is called before the first frame update
     void Start()
     {
         blackoutSquare = GetComponentInChildren<Image>();
-        deathText = GetComponentInChildren<TextMeshProUGUI>();
-        deathText.text = "You Died";
+        YouDiedImage.enabled = true;
+        VictoryImage.enabled = false;
+        Color c = YouDiedImage.color;
+        c.a = 0f;
+        YouDiedImage.color = c;
 
         //This object needs to persist through loading screens
         DontDestroyOnLoad(this.gameObject);
@@ -38,7 +42,13 @@ public class LoadManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
     {
-        deathText.text = "You Died";
+        YouDiedImage.enabled = true;
+        VictoryImage.enabled = false;
+        Color c = YouDiedImage.color;
+        c.a = 0f;
+        YouDiedImage.color = c;
+
+
         LoadManager[] loadManagers = FindObjectsOfType<LoadManager>();
         if (loadManagers.Length > 1) 
         {
@@ -73,9 +83,9 @@ public class LoadManager : MonoBehaviour
 
     private void ReloadScene() 
     {
-        Color c = deathText.color;
+        Color c = YouDiedImage.color;
         c.a = 0f;
-        deathText.color = c;
+        YouDiedImage.color = c;
 
         Time.timeScale = 1.0f;
 
@@ -87,15 +97,16 @@ public class LoadManager : MonoBehaviour
 
     public void WinToMainMenu()
     {
-        deathText.text = "Level Complete!";
+        YouDiedImage.enabled = false;
+        VictoryImage.enabled = true;
+
         checkPointSceneIndex = -1;
         StartCoroutine(FadeInWinScreen());
     }
     private void LoadMenu()
     {
-        Color c = deathText.color;
-        c.a = 0f;
-        deathText.color = c;
+        YouDiedImage.enabled = false;
+        VictoryImage.enabled = false;
         SceneManager.LoadScene(0);
         StartCoroutine(FadeOutBlackoutSquare());
     }
@@ -116,11 +127,11 @@ public class LoadManager : MonoBehaviour
                 blackoutSquare.color = c;
             }
 
-            if (deathText.color.a <= 1f)
+            if (VictoryImage.color.a <= 1f)
             {
-                c = deathText.color;
+                c = VictoryImage.color;
                 c.a += colourAccumulator;
-                deathText.color = c;
+                VictoryImage.color = c;
             }
 
 
@@ -147,11 +158,11 @@ public class LoadManager : MonoBehaviour
                 blackoutSquare.color = c;
             }
 
-            if (deathText.color.a <= 1f) 
+            if (YouDiedImage.color.a <= 1f) 
             {
-                c = deathText.color;
+                c = YouDiedImage.color;
                 c.a += colourAccumulator;
-                deathText.color = c;
+                YouDiedImage.color = c;
             }
             
 
