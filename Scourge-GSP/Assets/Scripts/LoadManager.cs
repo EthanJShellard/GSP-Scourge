@@ -118,6 +118,10 @@ public class LoadManager : MonoBehaviour
         float colourAccumulator = 0.01f;
         Color c;
 
+        c = VictoryImage.color;
+        c.a = 0;
+        VictoryImage.color = c;
+
         while (timer < fadeInTime)
         {
             if (blackoutSquare.color.a <= 1f)
@@ -149,7 +153,11 @@ public class LoadManager : MonoBehaviour
         float colourAccumulator = 0.01f;
         Color c;
 
-        while(timer < fadeInTime)
+        c = YouDiedImage.color;
+        c.a = 0;
+        YouDiedImage.color = c;
+
+        while (timer < fadeInTime)
         {
             if (blackoutSquare.color.a <= 1f) 
             {
